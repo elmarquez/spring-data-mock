@@ -1,39 +1,76 @@
-
-# Spring Data Mock
-
-[![Donae](https://img.shields.io/badge/paypal-donate-yellow.svg)](https://paypal.me/mmnaseri)
-[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.mmnaseri.utils/spring-data-mock/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.mmnaseri.utils/spring-data-mock)
-[![Dependency Status](https://www.versioneye.com/user/projects/5722a8f5ba37ce0031fc17f0/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5722a8f5ba37ce0031fc17f0)
+[![Supported Open Source](supported-blue.svg)](https://freshbits.io)
 [![Build Status](https://travis-ci.org/mmnaseri/spring-data-mock.svg?branch=master)](https://travis-ci.org/mmnaseri/spring-data-mock)
 [![Codacy Badge](https://api.codacy.com/project/badge/grade/ad9f174fa0654a2b8c925b86973f272d)](https://www.codacy.com/app/mmnaseri/spring-data-mock)
 [![Coverage Status](https://coveralls.io/repos/github/mmnaseri/spring-data-mock/badge.svg?branch=master)](https://coveralls.io/github/mmnaseri/spring-data-mock?branch=master)
 
------------
+# Spring Data Mock
+
+**A lightning fast framework for mocking Spring Data repositories.**
+
+Spring Data provides a great foundation for separating data from business
+concerns. However, when you want to test your application, it forces you to
+either write lots of boilerplate code or start a full blown application context
+and backing database. This wastes expensive developer time, makes test execution
+significantly slower, and is completely unnecessary.
+
+**Spring Data Mock will save you time and money, while making your tests run faster.**
+
+Reduce the amount of code you need to write, while using a reliable
+infrastructure that replicates what Spring would do with an actual database,
+only in-memory.
 
 
-This is a fairly flexible, versatile framework for mocking Spring Data repositories. Spring Data provides a very good
-foundation for separating the concerns of managing a database and its subsequently resulting queries from those of the
-business layer.
+## Commercial Support
 
-This is great for writing services. They only need to depend upon Spring Data repositories and manage their data through
-this level of indirection. This, however, means that for testing purposes, you will either have to write lots of boilerplate
-code for your Spring powered application, or you will have to start up a full blown application context with a backing
-database.
+**Kick start a new project or boost your existing team's productivity.**
+We'll show you how to save LOTS of developer time. We provide dedicated phone,
+email and chat support to get you going. Purchase Enterprise Support for teams
+of 15 or more people, or Developer Support for smaller teams.
 
-For most test cases, this is entirely unnecessary and, moreover, creates time burdens and takes away valuable time from
-productive tasks. This is why I decided to write this framework: to avoid the unnecessary effort, and to have a reliable
-infrastructure replicating what Spring would do with an actual database, only in-memory. This will allow for mocking the
-repository with actual data. Thus, you can test your services *without* having to start up the application context, and
-with the highest level of isolation -- with actual data.
+<p>
+  <a href="https://mmnaseri.github.io/spring-data-mock">
+    <img src="offer-enterprise.svg" alt="Enterprise Support" width="512px">
+  </a>
+</p>
+<p>
+  <a href="https://mmnaseri.github.io/spring-data-mock">
+    <img src="offer-developer.svg" alt="Developer Support" width="512px">
+  </a>
+</p>
 
-## Downloading
+Some quick facts:
 
-You can either clone this project and start using it:
+* more than 1000 individual unit tests
+* 100% [code coverage](https://coveralls.io/github/mmnaseri/spring-data-mock)
+* 95% branch coverage rate
+* Covers all Spring Data Commons repository specifications, except predicates (support is planned)
+* More than 6000 lines of code, of which a substantial amount is unit tests
+* JavaDocs for every public class and method
+
+Learn more about [supported open source](https://freshbits.io/supported-open-source).
+
+## Documentation
+
+For a complete documentation check out [the website](https://mmnaseri.github.io/spring-data-mock).
+
+There you can get more information on how to download the framework, as well as
+how you can incorporate it in your project to have hassle-free data store
+mocking capabilities added to your shiny applications.
+
+* Downloading
+* Quick Start
+* FAQ
+* Contributions
+* History
+
+
+### Downloading
+
+Spring Data Mock can be cloned directly from the GitHub repo:
 
     $ git clone https://github.com/mmnaseri/spring-data-mock.git
 
-or you can add a maven dependency since it is now available in Maven central:
+or installed from Maven central:
 
     <dependency>
         <groupId>com.mmnaseri.utils</groupId>
@@ -42,11 +79,9 @@ or you can add a maven dependency since it is now available in Maven central:
         <scope>test</scope>
     </dependency>
 
-#### Note on Dependencies
-
 *Spring Data Mock* depends on [Apache Commons Logging](https://commons.apache.org/proper/commons-logging/) to log
-all the interactions with the framework. If you need to, you can exclude this dependency from the framework by
-using [Maven exclusions](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#Dependency_Exclusions):
+all the interactions with the framework. If you need to, you can exclude this
+dependency from the framework by using [Maven exclusions](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html#Dependency_Exclusions):
 
 ```xml
     <dependency>
@@ -68,7 +103,7 @@ using [Maven exclusions](https://maven.apache.org/guides/introduction/introducti
 Regardless of how you add the necessary dependency to your project, mocking a repository can be as simple as:
 
     final UserRepository repository = builder().mock(UserRepository.class);
-    
+
 where `builder()` is a static method of the `RepositoryFactoryBuilder` class under package `com.mmnaseri.utils.spring.data.dsl.factory`.
 
 Example:
@@ -90,25 +125,9 @@ package:
 
     final RepositoryFactoryConfiguration configuration = ... ;
     final UserRepository repository = new RepositoryMockBuilder().useConfiguration(configuration).mock(UserRepository.class);
-    
-Documentation
--------------
-
-For a complete documentation check out [the website](https://mmnaseri.github.io/spring-data-mock).
-
-There you can get more information on how to download the framework, as well as how you can
-incorporate it in your project to have hassle-free data store mocking capabilities added to
-your shiny applications.
-
-## History
-
-- 1.1 Add QueryDSL and findByExample support
-
-see [site changelog](https://mmnaseri.github.io/spring-data-mock/site/#/changelog)
 
 
-FAQ
--------------
+  ### FAQ
 
   1. Why did you write this?
 
@@ -126,65 +145,34 @@ FAQ
 
   3. What is the main design decision behind this framework?
 
-  > Make you do as little as possible.
+  > Make the developer work as little as possible.
 
   4. When should I use this?
 
-  > You should only use this to write you *unit* tests. For anything else, you would want the whole application to
-  come alive and work. Using mocks for that is a bad idea.
+  > You should only use this to write *unit* tests. For anything else, you would want the whole application to come alive and work. Using mocks for that is a bad idea.
 
   5. This is going to be used at the level of code testing. Is it really well written?
 
   > It is. According to Cobertura, it has **100% code coverage**, and according to Codacy, it has **0 code issues**.
-  It is maintained by myself the best I can. The rest is up to you.
 
-Some Numbers and Facts
-----------------------
 
-  * This project has *1000+* individual unit tests.
+  ### Contributions
 
-  * This project has **100%** [code coverage](https://coveralls.io/github/mmnaseri/spring-data-mock)
+  Since this project is aimed at the testing phase of your code, it is paramount
+  that it is written with the best of qualities and that it maintains the highest
+  standard.
 
-  * This project has **95%** branch coverage rate.
+  Contributors are more than welcome. In fact, I flag most of the issues I receive
+  as `help wanted` and there are really generous people out there who do take care
+  of some issues.
 
-  * The project issue response turn around is an average of 2 days.
+  If you see a piece of code that you don't like for whatever reason -- so long as
+  that reason can be backed by pioneers and standards -- feel free to dig in and
+  change the code to your heart's content and create a pull request.
 
-  * It covers *all* the repository specifications in Spring Data Commons (except predicates -- support is planned).
 
-  * It has more than 6k lines of code, a lot of which is unit tests.
+  ### History
 
-  * Every public class or method has JavaDoc
+  - 1.1 Add QueryDSL and findByExample support
 
-  * There is a dedicated documentation website for this project at https://mmnaseri.github.io/spring-data-mock/
-
-Contribution
-------------
-
-Since this project is aimed at the testing phase of your code, it is paramount that it is written with the best of
-qualities and that it maintains the highest standard.
-
-Contributors are more than welcome. In fact, I flag most of the issues I receive as `help wanted` and
-there are really generous people out there who do take care of some issues.
-
-If you see a piece of code that you don't like for whatever reason -- so long as that reason can be backed
-by pioneers and standards -- feel free to dig in and change the code to your heart's content and create a
-pull request.
-
-Donation
---------
-
-This software is written without any expectations. I developed this originally to solve a business need at
-the company I was working at at the time, and then rewrote it for the purpose of open-sourcing it.
-
-After it received some attention, I decided that I should sit down and redo it.
-
-That is why I did a marathon development on it, and got it to a point where I could say it was safe for
-public use.
-
-It still has a lot of room for improvement and enhancements. Even though I will continue to develop and
-maintain this framework, receiving donations would make it feel so much more real.
-
-If you feel generous and want to buy me a cup of coffee, you can use my PayPal link: https://paypal.me/mmnaseri
-
-Thank you in advance if you choose to donate! And if not, I hope you have some time to explore this framework
-and give me feedback so that I can make it better.
+  see [site changelog](https://mmnaseri.github.io/spring-data-mock/site/#/changelog)
