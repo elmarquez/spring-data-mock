@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Data Mock</title>
+    <!--<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">-->
+    <!--<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,700" rel="stylesheet">-->
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <!--<style>-->
+        <!--html, body {-->
+            <!--/*color: #3d4852;*/-->
+            <!--/*font-family: 'IBM Plex Sans', sans-serif;*/-->
+            <!--/*font-family: Source Sans Pro,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue, sans-serif;*/-->
+            <!--/*font-size: 0.92rem;*/-->
+            <!--/*line-height: 1.5rem;*/-->
+        <!--}-->
+        <!--.monospace {-->
+            <!--font-family: 'IBM Plex Mono', monospace;-->
+        <!--}-->
+    <!--</style>-->
+</head>
+<body>
+
+<header class="navbar">
+    <section class="navbar-section">
+        <a href="#" class="btn btn-link">Docs</a>
+        <a href="#" class="btn btn-link">Examples</a>
+    </section>
+    <section class="navbar-center">
+        <!-- centered logo or brand -->
+    </section>
+    <section class="navbar-section">
+        <a href="#" class="btn btn-link">Twitter</a>
+        <a href="#" class="btn btn-link">GitHub</a>
+    </section>
+</header>
+
+<div class="container mx-auto">
+
+    <ul class="nav">
+        <li class="nav-item">
+            <a href="#">Elements</a>
+        </li>
+        <li class="nav-item active">
+            <a href="#">Layout</a>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#">Flexbox grid</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Responsive</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Navbar</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#">Empty states</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="#">Components</a>
+        </li>
+        <li class="nav-item">
+            <a href="#">Utilities</a>
+        </li>
+    </ul>
+
+    <div class="w-full max-w-screen-xl mx-auto px-6 bg-grey-light mb-4">
+        Box
+    </div>
+    <div class="flex mb-4">
+        <div class="w-1/6 bg-grey-light h-12">Left</div>
+        <div class="w-2/3 bg-grey h-12">Center</div>
+        <div class="w-1/6 bg-grey-light h-12">Right</div>
+    </div>
+
+
+    <h1>Spring Data Mock</h1>
+    <p>
+        <jump-top><a class="jump-top" target="_self" href="#/readme"><i class="glyphicon glyphicon-chevron-up"></i></a>
+        </jump-top>
+    </p>
+    <div class="header header-1" id="contents"><span><span>Contents</span></span><a
+            href="#/readme#contents" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+    <p>
+        <div class="table-of-contents ng-isolate-scope">
+            <ul><!-- ngRepeat: item in items --><!-- ngInclude: '$templates/tableOfContents.html' -->
+                <li ng-repeat="item in items" ng-include="'$templates/tableOfContents.html'">
+    <p><a href="#/readme#contents" target="_self" class="ng-binding">Contents</a></p><!-- ngIf: item.children.length -->
+    <p></p></li><!-- end ngRepeat: item in items --><!-- ngInclude: '$templates/tableOfContents.html' -->
+    <li ng-repeat="item in items" ng-include="'$templates/tableOfContents.html'"><p><a href="#/readme#introduction"
+                                                                                       target="_self"
+                                                                                       class="ng-binding">Introduction</a>
+    </p><!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in items -->
+    <!-- ngInclude: '$templates/tableOfContents.html' -->
+    <li ng-repeat="item in items" ng-include="'$templates/tableOfContents.html'"><p><a href="#/readme#quick-start"
+                                                                                       target="_self"
+                                                                                       class="ng-binding">Quick
+        Start</a></p><!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in items -->
+    <!-- ngInclude: '$templates/tableOfContents.html' -->
+    <li ng-repeat="item in items" ng-include="'$templates/tableOfContents.html'"><p><a
+            href="#/readme#mocking-a-repository" target="_self" class="ng-binding">Mocking a Repository</a></p>
+        <!-- ngIf: item.children.length -->
+        <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#repository-factory-configuration" target="_self" class="ng-binding">Repository
+                Factory Configuration</a></p><!-- ngIf: item.children.length --><p></p></li>
+            <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#using-the-dsl-to-mock-a-repository" target="_self" class="ng-binding">Using the DSL
+                to Mock a Repository</a></p><!-- ngIf: item.children.length --><p></p></li>
+            <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#using-the-dsl-to-create-a-configuration" target="_self" class="ng-binding">Using the
+                DSL to Create a Configuration</a></p><!-- ngIf: item.children.length --><p></p></li>
+            <!-- end ngRepeat: item in item.children --></ul><!-- end ngIf: item.children.length --><p></p></li>
+    <!-- end ngRepeat: item in items --><!-- ngInclude: '$templates/tableOfContents.html' -->
+    <li ng-repeat="item in items" ng-include="'$templates/tableOfContents.html'"><p><a href="#/readme#the-mechanics"
+                                                                                       target="_self"
+                                                                                       class="ng-binding">The
+        Mechanics</a></p><!-- ngIf: item.children.length -->
+        <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#metadata-resolver" target="_self" class="ng-binding">Metadata Resolver</a></p>
+                <!-- ngIf: item.children.length -->
+                <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#primitive-ids" target="_self" class="ng-binding">Primitve IDs</a></p>
+                        <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children --></ul>
+                <!-- end ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#the-operators" target="_self" class="ng-binding">The Operators</a></p>
+                <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#data-functions" target="_self" class="ng-binding">Data Functions</a></p>
+                <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#data-stores" target="_self" class="ng-binding">Data Stores</a></p>
+                <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#result-adapters" target="_self" class="ng-binding">Result Adapters</a></p>
+                <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#custom-implementations-and-type-mapping-context" target="_self" class="ng-binding">Custom
+                Implementations and Type Mapping Context</a></p><!-- ngIf: item.children.length --><p></p></li>
+            <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#spring-data-extensions" target="_self" class="ng-binding">Spring Data Extensions</a>
+            </p><!-- ngIf: item.children.length -->
+                <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#support-for-crudrepository" target="_self" class="ng-binding">Support for
+                        CrudRepository</a></p><!-- ngIf: item.children.length --><p></p></li>
+                    <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#support-for-pagingandsortingrepository" target="_self" class="ng-binding">Support
+                        for PagingAndSortingRepository</a></p><!-- ngIf: item.children.length --><p></p></li>
+                    <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#support-for-query-by-example-" target="_self" class="ng-binding">Support for
+                        "Query by Example"</a></p><!-- ngIf: item.children.length --><p></p></li>
+                    <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#support-for-querydsl" target="_self" class="ng-binding">Support for
+                        QueryDSL</a></p><!-- ngIf: item.children.length -->
+                        <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                            <!-- ngInclude: '$templates/tableOfContents.html' -->
+                            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                                    href="#/readme#note-on-additional-dependencies" target="_self" class="ng-binding">Note
+                                on additional dependencies</a></p><!-- ngIf: item.children.length --><p></p></li>
+                            <!-- end ngRepeat: item in item.children --></ul><!-- end ngIf: item.children.length -->
+                        <p></p></li><!-- end ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#support-for-jpa" target="_self" class="ng-binding">Support for JPA</a></p>
+                        <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#gemfire-support" target="_self" class="ng-binding">Gemfire Support</a></p>
+                        <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children --></ul>
+                <!-- end ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#non-data-operation-handlers" target="_self" class="ng-binding">Non-Data-Operation
+                Handlers</a></p><!-- ngIf: item.children.length -->
+                <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#disclaimer" target="_self" class="ng-binding">Disclaimer</a></p>
+                        <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children --></ul>
+                <!-- end ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#event-listeners" target="_self" class="ng-binding">Event Listeners</a></p>
+                <!-- ngIf: item.children.length -->
+                <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#auditing" target="_self" class="ng-binding">Auditing</a></p>
+                        <!-- ngIf: item.children.length -->
+                        <ul ng-if="item.children.length"><!-- ngRepeat: item in item.children -->
+                            <!-- ngInclude: '$templates/tableOfContents.html' -->
+                            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                                    href="#/readme#note-on-additional-dependencies" target="_self" class="ng-binding">Note
+                                on additional dependencies</a></p><!-- ngIf: item.children.length --><p></p></li>
+                            <!-- end ngRepeat: item in item.children --></ul><!-- end ngIf: item.children.length -->
+                        <p></p></li><!-- end ngRepeat: item in item.children -->
+                    <!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#a-note-on-distinct-selections" target="_self" class="ng-binding">A Note on
+                        Distinct Selections</a></p><!-- ngIf: item.children.length --><p></p></li>
+                    <!-- end ngRepeat: item in item.children --><!-- ngInclude: '$templates/tableOfContents.html' -->
+                    <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                            href="#/readme#referenced-objects" target="_self" class="ng-binding">Referenced Objects</a>
+                    </p><!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children --></ul>
+                <!-- end ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children -->
+            <!-- ngInclude: '$templates/tableOfContents.html' -->
+            <li ng-repeat="item in item.children" ng-include="'$templates/tableOfContents.html'"><p><a
+                    href="#/readme#key-generation" target="_self" class="ng-binding">Key Generation</a></p>
+                <!-- ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in item.children --></ul>
+        <!-- end ngIf: item.children.length --><p></p></li><!-- end ngRepeat: item in items --></ul></div>
+</p>
+<div class="header header-1" id="introduction"><span><span>Introduction</span></span><a
+        href="#/readme#introduction" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>This is a fairly flexible, versatile framework for mocking Spring Data repositories. Spring Data provides a very good
+    foundation for separating the concerns of managing a database and its subsequently resulting queries from those of
+    the
+    business layer.</p>
+<p>This is great for writing services. They only need to depend upon Spring Data repositories and manage their data
+    through
+    this level of indirection. This, however, means that for testing purposes, you will either have to write lots of
+    boilerplate
+    code for your Spring powered application, or you will have to start up a full blown application context with a
+    backing
+    database.</p>
+<p>For most test cases, this is entirely unnecessary and, moreover, creates time burdens and takes away valuable time
+    from
+    productive tasks. This is why I decided to write this framework: to avoid the unnecessary effort, and to have a
+    reliable
+    infrastructure replicating what Spring would do with an actual database, only in-memory. This will allow for mocking
+    the
+    repository with actual data. Thus, you can test your services <em>without</em> having to start up the application
+    context, and
+    with the highest level of isolation -- with actual data.</p>
+<div class="header header-1" id="quick-start"><span><span>Quick Start</span></span><a
+        href="#/readme#quick-start" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>Regardless of how you add the necessary dependency to your project, mocking a repository can be as simple as:</p>
+<pre class="ng-scope hljs"><code><span class="hljs-selector-tag">builder</span>()<span
+        class="hljs-selector-class">.mock</span>(<span class="hljs-selector-tag">UserRepository</span><span
+        class="hljs-selector-class">.class</span>);
+</code></pre>
+<p>where <code class="inline"><span class="hljs-function"><span class="hljs-title">builder</span><span
+        class="hljs-params">()</span></span></code> is a static method of the <code class="inline">RepositoryFactoryBuilder</code>
+    class under package <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.dsl</span><span
+            class="hljs-selector-class">.factory</span></code>.</p>
+<p>The full code for that would be:</p>
+<pre class="ng-scope hljs"><code class="lang-java">
+import static com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+        class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+        class="hljs-selector-class">.dsl</span><span class="hljs-selector-class">.factory</span><span
+        class="hljs-selector-class">.RepositoryFactoryBuilder</span><span class="hljs-selector-class">.builder</span>;
+
+<span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">class</span> <span
+        class="hljs-selector-tag">UserServiceTest</span> {
+
+    private UserRepository repository;
+    private UserService service;
+
+    <span class="hljs-variable">@BeforeMethod</span>
+    public void setUp() {
+        repository = builder()<span class="hljs-selector-class">.mock</span>(UserRepository.class);
+        repository<span class="hljs-selector-class">.save</span>(new User(&amp;quot;test&amp;quot;, &amp;quot;securePassword&amp;quot;));
+        service = new UserService(repository);
+    }
+
+    <span class="hljs-variable">@Test</span>
+    public void testUserLookUp() {
+        User user = service<span class="hljs-selector-class">.load</span>(&amp;quot;test&amp;quot;);
+    }
+
+}
+</code></pre>
+<p>An alternate way of mocking a repository would be by using the <code class="inline">RepositoryMockBuilder</code>
+    class under the <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.dsl</span><span
+            class="hljs-selector-class">.mock</span></code>
+    package:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span class="hljs-keyword">final</span> RepositoryFactoryConfiguration configuration = ... ;
+<span class="hljs-keyword">final</span> UserRepository repository = <span class="hljs-keyword">new</span> RepositoryMockBuilder()
+    .useConfiguration(configuration)
+    .mock(UserRepository.<span class="hljs-keyword">class</span>);
+</code></pre>
+<div class="header header-1" id="mocking-a-repository"><span><span>Mocking a Repository</span></span><a
+        href="#/readme#mocking-a-repository" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>To mock a repository you must somehow use the underlying <code class="inline">RepositoryFactory</code>. There is
+    currently a single implementation of
+    this interface available, <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.proxy</span><span
+            class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.DefaultRepositoryFactory</span></code>. The factory has a <code class="inline"><span
+            class="hljs-function"><span class="hljs-title">getInstance</span>(<span
+            class="hljs-params">...</span>)</span></code>
+    method that let's you customize the mocking for each instance of the repository you create. This means that you can
+    mock a
+    single repository multiple times, each time with a different set of behaviors:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span
+        class="hljs-keyword">final</span> UserRepository repository = <span class="hljs-keyword">factory</span>.getInstance(keyGenerator,
+            UserRepository.<span class="hljs-keyword">class</span>,
+            Implementation1.<span class="hljs-keyword">class</span>,
+            Implementation2.<span class="hljs-keyword">class</span>);
+</code></pre>
+<p>There are three components to this method call:</p>
+<ol>
+    <li>The <strong>key generator</strong> (which can be <code class="inline"><span
+            class="hljs-literal">null</span></code>) will determine the strategy for generating keys for the ID field
+        for
+        an entity when it is inserted into the underlying data store.
+    </li>
+    <li>The <strong>repository interface</strong> which is the interface you want to instantiate and have proxied for
+        you.
+    </li>
+    <li>The <strong>custom implementations</strong> (which are optional) that can provide custom ways of handling
+        repository method calls.
+    </li>
+</ol>
+<p>A minimal way of instantiating a repository would be:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span
+        class="hljs-keyword">final</span> UserRepository repository = <span class="hljs-keyword">factory</span>.getInstance(<span
+        class="hljs-keyword">null</span>, UserRepository.<span class="hljs-keyword">class</span>);
+</code></pre>
+<p>which falls back on the default way of generating keys, and relies solely on default implementations for handling
+    method calls.</p>
+<div class="header header-2" id="repository-factory-configuration"><span><span>Repository Factory Configuration</span></span><a
+        href="#/readme#repository-factory-configuration" class="pull-right"><i class="glyphicon glyphicon-link"></i></a>
+</div>
+<p>The default repository factory implementation takes in a configuration object which will let you customize multiple
+    aspects of the mocking mechanism.</p>
+<p>The configuration object allows you the following customizations:</p>
+<ul>
+    <li><p>Change the way <em>repository metadata</em> is resolved from a given repository class object. The following
+        metadata is
+        required to work with a repository and to be able to efficiently mock its intended behavior: 1) the entity type,
+        2) the type of the identifier 3) the property corresponding to the identifier.</p>
+    </li>
+    <li><p>Change the way a <em>query method name</em> is parsed and converted into a data filter object. By default,
+        query methods
+        which follow the standard declared by Spring Data are parsed and honored. Additionally, the first word is taken
+        as
+        a function and can thus be used to implement custom behavior. This is to enable extension in case of further
+        support
+        by the Spring Data team. Also, the operators (such as "Is Greater Than", "Is Equal To", "Is Between", etc.) are
+        customizable.</p>
+    </li>
+    <li><p>Customize the set of available aggregate and operational <em>functions</em>.</p>
+    </li>
+    <li><p>Customize the underlying <em>data store</em> mapping for each entity type. By default, storage is done
+        in-memory. But there is
+        nothing preventing you from attaching the data store for a particular type of entity to another source. All you
+        have to do
+        is to implement the <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+                class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+                class="hljs-selector-class">.data</span><span class="hljs-selector-class">.store</span><span
+                class="hljs-selector-class">.DataStore</span></code> interface and add it to this context. It is
+        actually
+        much easier than it sounds.</p>
+    </li>
+    <li><p>Decide <em>how results should be adapted</em> from an actual value returned from implementation methods to
+        the way a
+        repository method is supposed to return values. This is to allow, for instance, to implement a <code
+                class="inline"><span class="hljs-keyword">findAll</span></code> method that
+        returns a collection of items, and then reuse its implementation for a repository method named <code
+                class="inline"><span class="hljs-keyword">findAll</span></code> that is supposed
+        to return a set.</p>
+    </li>
+    <li><p>Set <em>default implementations</em> for particular repository types and subtypes.</p>
+    </li>
+    <li><p>Add and customize <em>event listeners</em> to data store actions. These can listen to events before and after
+        inserting, updating,
+        and deleting a particular entity.</p>
+    </li>
+    <li><p>Decide how repository methods that are strictly non-data (e.g. <code class="inline">.<span
+            class="hljs-keyword">equals</span>(<span class="hljs-attr">...</span>)</code>) are to be handled</p>
+    </li>
+    <li><p>And what the default key generation scheme should be in case no key generator is specified for the given
+        repository</p>
+    </li>
+</ul>
+<p>Since the configuration object is complex and can be a hassle to create, you can use the much easier to use DSL via
+    the
+    <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.dsl</span><span
+            class="hljs-selector-class">.factory</span><span
+            class="hljs-selector-class">.RepositoryFactoryBuilder</span></code> class. We will go over that shortly.</p>
+<div class="header header-2" id="using-the-dsl-to-mock-a-repository"><span><span>Using the DSL to Mock a Repository</span></span><a
+        href="#/readme#using-the-dsl-to-mock-a-repository" class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>Once you have a configuration object at hand, you can use the DSL bundled with this framework to easily mock
+    your repositories and avoid going through the RepositoryFactory class.</p>
+<p>You can mock a repository this way:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span class="hljs-keyword">final</span> RepositoryMockBuilder builder = <span
+        class="hljs-keyword">new</span> RepositoryMockBuilder();
+<span class="hljs-keyword">final</span> UserRepository repository = builder.useConfiguration(configuration)
+    .generateKeysUsing(UUIDKeyGenerator.<span class="hljs-keyword">class</span>)
+    .usingImplementation(SampleImpl1.<span class="hljs-keyword">class</span>)
+        .and(SampleImpl2.<span class="hljs-keyword">class</span>)
+        .and(SampleImpl3.<span class="hljs-keyword">class</span>)
+    .mock(UserRepository.<span class="hljs-keyword">class</span>);
+</code></pre>
+<p>You have to note that this builder is <em>stateless</em>, meaning that each of the methods in this builder will not
+    modify an
+    internal state, but rather return an object which reflects all the configurations up to this point.</p>
+<p>To better understand this concept, let's look at the following example:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span class="hljs-keyword">final</span> RepositoryMockBuilder base = <span
+        class="hljs-keyword">new</span> RepositoryMockBuilder();
+<span class="hljs-keyword">final</span> RepositoryMockBuilder builder1 = base.useConfiguration(configuration)
+    .generateKeysUsing(UUIDKeyGenerator.<span class="hljs-keyword">class</span>)
+    .usingImplementation(SampleImpl1.<span class="hljs-keyword">class</span>);
+<span class="hljs-keyword">final</span> RepositoryMockBuilder builder2 = base.useConfiguration(configuration)
+    .generateKeysUsing(NoOpKeyGenerator.<span class="hljs-keyword">class</span>)
+    .usingImplementation(SampleImpl2.<span class="hljs-keyword">class</span>);
+</code></pre>
+<p>This is by design, and is to allow developers and testers the freedom of reusing their configurations.</p>
+<div class="header header-2" id="using-the-dsl-to-create-a-configuration"><span><span>Using the DSL to Create a Configuration</span></span><a
+        href="#/readme#using-the-dsl-to-create-a-configuration" class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>Whereas mocking a repository is a relatively painless process and might not require the use of a dedicated DSL,
+    creating
+    a configuration is another story altogether. In recognition of this fact, I have created a DSL for this very
+    purpose, so
+    that you can craft configurations using a <em>stateful</em> builder via this DSL:</p>
+<pre class="ng-scope hljs"><code class="lang-java">final RepositoryFactoryBuilder builder = RepositoryFactoryBuilder.builder()
+    .resolveMetadataUsing(<span class="hljs-attr">...</span>)
+    .registerOperator(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register some operator</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register other operators</span>
+    .registerFunction(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register data function</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register additional data functions</span>
+    .registerDataStore(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register a data store to be used in the configured repositories</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register additional data stores</span>
+    .adaptResultsUsing(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register a result adapter</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register additional result adapters</span>
+    .honoringImplementation(<span class="hljs-attr">...</span>) <span class="hljs-comment">//add some custom implementation on a global scope</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register additional implementations</span>
+    .withOperationHandler(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register other operation handlers</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//add more operation handlers</span>
+    .withDefaultKeyGenerator(<span class="hljs-attr">...</span>) <span class="hljs-comment">//set the default key generator</span>
+    .enableAuditing(<span class="hljs-attr">...</span>) <span class="hljs-comment">//enable support for Spring Data&amp;#39;s auditing and pass in a custom auditor aware instance</span>
+    .withListener(<span class="hljs-attr">...</span>) <span class="hljs-comment">//register some event listener</span>
+        .<span class="hljs-keyword">and</span>(<span class="hljs-attr">...</span>).<span class="hljs-keyword">and</span>(<span
+            class="hljs-attr">...</span>) <span class="hljs-comment">//register additional event listeners</span>
+</code></pre>
+<p>At this stage, you can either call to the <code class="inline"><span class="hljs-function"><span class="hljs-title">configure</span><span
+        class="hljs-params">()</span></span></code> method on the builder object to get a configuration object, or
+    you can skip this step and continue from the key generation step of the mock builder (marked with three stars in the
+    previous
+    listing). Alternatively, you can call <code class="inline"><span class="hljs-function"><span class="hljs-title">build</span><span
+            class="hljs-params">()</span></span></code> to get an instance of the repository factory, which you can use
+    to
+    instantiate mock repositories.</p>
+<p>All of the steps above are optional. All values have defaults and you can skip setting them and still expect
+    everything
+    to just work out of the box.</p>
+<p>Here is a complete list of the terms you can use in the DSL to configure the repository factory:</p>
+<table class="ng-scope table">
+    <thead>
+    <tr>
+        <th>Term</th>
+        <th>Explanation</th>
+        <th>Default Behavior</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code class="inline">resolveMetadataUsing</code></td>
+        <td>tells the configurer to use the provided metadata resolver</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultRepositoryMetadataResolver</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">withOperators</code></td>
+        <td>tells the configurer to use the provided operator context</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultOperatorContext</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">registerOperator</code></td>
+        <td>registers an operator with the operator context</td>
+        <td>only the operators in the <code class="inline">DefaultOperatorContext</code> will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withDataFunctions</code></td>
+        <td>tells the configurer to use the provided data function registry</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.query</span><span
+                class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultDataFunctionRegistry</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">registerFunction</code></td>
+        <td>registers a function with the default context</td>
+        <td>only default functions will be registered</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withDataStores</code></td>
+        <td>tells the configurer to use the provided data store registry</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.store</span><span
+                class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultDataStoreRegistry</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">registerDataStore</code></td>
+        <td>registers a data store</td>
+        <td>no data store will be registered by default</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withAdapters</code></td>
+        <td>tells the configurer to use the provided result adapter context</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.proxy</span><span
+                class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultResultAdapterContext</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">adaptResultsUsing</code></td>
+        <td>registers an adapter</td>
+        <td>no additional adapters will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withMappings</code></td>
+        <td>tells the configurer to use the provided type mapping context</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.proxy</span><span
+                class="hljs-selector-class">.impl</span><span
+                class="hljs-selector-class">.DefaultTypeMappingContext</span></code> will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">honoringImplementation</code></td>
+        <td>registers a type with the type mapping context</td>
+        <td>only the defaults provided will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withOperationHandlers</code></td>
+        <td>tells the configurer to use the provided non-data operation handler context</td>
+        <td>the default context will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withOperationHandler</code></td>
+        <td>registers an operation handler with the context</td>
+        <td>the default handlers will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withDefaultKeyGenerator</code></td>
+        <td>registers a default, fallback key generator for the repository factory</td>
+        <td>no fallback will be used</td>
+    </tr>
+    <tr>
+        <td><code class="inline">withListeners</code></td>
+        <td>tells the configurer to use the provided event listener context</td>
+        <td><code class="inline">~<span class="hljs-selector-class">.store</span><span
+                class="hljs-selector-class">.impl</span><span class="hljs-selector-class">.DefaultDataStoreEventListenerContext</span></code>
+            will be used
+        </td>
+    </tr>
+    <tr>
+        <td><code class="inline">withListener</code></td>
+        <td>adds the provided event listener</td>
+        <td>no listener will be added</td>
+    </tr>
+    <tr>
+        <td><code class="inline"><span class="hljs-built_in">enable</span>Auditing</code></td>
+        <td>enables Spring Data auditing. You can also provide an <code class="inline">AuditorAware</code>. If you don't
+            provide anything, a default will be used which assumes user to be a string and it will have a value of <code
+                    class="inline"><span class="hljs-keyword">User</span></code></td>
+        <td>auditing will not be enabled</td>
+    </tr>
+    <tr>
+        <td><code class="inline">build</code></td>
+        <td>builds and returns a repository factory</td>
+        <td>N/A</td>
+    </tr>
+    <tr>
+        <td><code class="inline">configure</code></td>
+        <td>builds and returns a repository factory configuration</td>
+        <td>N/A</td>
+    </tr>
+    </tbody>
+</table>
+<p>To answer the question of what all of these configurable steps mean, we need to go to the next section.</p>
+<div class="header header-1" id="the-mechanics"><span><span>The Mechanics</span></span><a
+        href="#/readme#the-mechanics" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>In this section, we will detail the framework and go over how each part of it can be configured.</p>
+<div class="header header-2" id="metadata-resolver"><span><span>Metadata Resolver</span></span><a
+        href="#/readme#metadata-resolver" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>The metadata resolver is an entity that is capable of looking at a repository interface and figuring out detail about
+    the repository as well as the persistent entity it is supporting. This is what the metadata resolver will find
+    out:</p>
+<ul>
+    <li><p>the type of the entity for which the repository has been created</p>
+    </li>
+    <li><p>the (actual or encapsulated) property of the persistent entity which holds the identifier.</p>
+    </li>
+    <li><p>the type of the identifier associated with the entity</p>
+    </li>
+</ul>
+<p>The default metadata resolver is the <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+        class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.domain</span><span
+        class="hljs-selector-class">.impl</span><span
+        class="hljs-selector-class">.DefaultRepositoryMetadataResolver</span></code>
+    class, which will first see if the repository is annotated with <code class="inline">@<span
+            class="hljs-keyword">org</span>.<span class="hljs-keyword">springframework</span>.<span
+            class="hljs-keyword">data</span>.<span class="hljs-keyword">repository</span>.<span class="hljs-keyword">RepositoryDefinition</span></code>
+    and if not tries to extract its metadata from the interface should it extend <code class="inline">org<span
+            class="hljs-selector-class">.springframework</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.repository</span><span class="hljs-selector-class">.Repository</span></code>.
+</p>
+<p>If none of these conditions are met, it will throw an exception.</p>
+<div class="alert alert-warning">
+    <div class="header header-4" id="primitive-ids"><span><span>Primitve IDs</span></span><a
+            href="#/readme#primitive-ids" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+    <p> At this point, we do not support primitive identifier types. This means that if your ID type
+        is <code class="inline"><span class="hljs-keyword">long</span></code>, you will have to change it to <code
+                class="inline">java<span class="hljs-selector-class">.lang</span><span
+                class="hljs-selector-class">.Long</span></code> to be able to use this framework.</p>
+</div>
+
+<div class="header header-2" id="the-operators"><span><span>The Operators</span></span><a
+        href="#/readme#the-operators" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>The operators are what drive how the query methods are parsed. This is the general recipe:</p>
+<p>At each juncture, we look for the operator whose tokens matches the longest suffix, and assume the rest to be a
+    property path, so that for instance, if we are parsing "ParentParentAgeGreaterThanEqual", we will match it with the
+    operator "GreaterThanEqual", and consider the "ParentParentAge" to be a property path (which might be <code
+            class="inline">parent<span class="hljs-selector-class">.parent</span><span
+            class="hljs-selector-class">.age</span></code>).</p>
+<p>Each operator has a <code class="inline">Matcher</code>, which will help identify whether or not based on a given
+    criteria an entity instance matches
+    the query.</p>
+<p>By extending the operators, you can practically extend the query method DSL. This might not be practical, as we might
+    not want
+    to support things that Spring Data doesn't support yet, but it allows for a better maintainability and easier
+    extensibility should
+    Spring Data actually expand beyond what it is today.</p>
+<p>Below is a list of the default operators that ship with this framework:</p>
+<table class="ng-scope table">
+    <thead>
+    <tr>
+        <th>Operator</th>
+        <th>Suffixes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>AFTER</td>
+        <td><code class="inline"><span class="hljs-keyword">After</span></code>, <code class="inline">IsAfter</code>
+        </td>
+    </tr>
+    <tr>
+        <td>BEFORE</td>
+        <td><code class="inline"><span class="hljs-keyword">Before</span></code>, <code class="inline">IsBefore</code>
+        </td>
+    </tr>
+    <tr>
+        <td>CONTAINING</td>
+        <td><code class="inline">Containing</code>, <code class="inline">IsContaining</code>, <code class="inline"><span
+                class="hljs-keyword">Contains</span></code></td>
+    </tr>
+    <tr>
+        <td>BETWEEN</td>
+        <td><code class="inline">Between</code>, <code class="inline">IsBetween</code></td>
+    </tr>
+    <tr>
+        <td>NOT_BETWEEN</td>
+        <td><code class="inline">NotBetween</code>, <code class="inline">IsNotBetween</code></td>
+    </tr>
+    <tr>
+        <td>ENDING_WITH</td>
+        <td><code class="inline">EndingWith</code>, <code class="inline">IsEndingWith</code>, <code class="inline">EndsWith</code>
+        </td>
+    </tr>
+    <tr>
+        <td>FALSE</td>
+        <td><code class="inline"><span class="hljs-literal">False</span></code>, <code class="inline"><span
+                class="hljs-keyword">IsFalse</span></code></td>
+    </tr>
+    <tr>
+        <td>GREATER_THAN</td>
+        <td><code class="inline">GreaterThan</code>, <code class="inline">IsGreaterThan</code></td>
+    </tr>
+    <tr>
+        <td>GREATER_THAN_EQUALS</td>
+        <td><code class="inline">GreaterThanEqual</code>, <code class="inline">IsGreaterThanEqual</code></td>
+    </tr>
+    <tr>
+        <td>IN</td>
+        <td><code class="inline"><span class="hljs-keyword">In</span></code>, <code class="inline">IsIn</code></td>
+    </tr>
+    <tr>
+        <td>IS</td>
+        <td><code class="inline"><span class="hljs-keyword">Is</span></code>, <code class="inline">EqualTo</code>, <code
+                class="inline"><span class="hljs-built_in">IsEqualTo</span></code>, <code class="inline"><span
+                class="hljs-keyword">Equals</span></code></td>
+    </tr>
+    <tr>
+        <td>NOT_NULL</td>
+        <td><code class="inline">NotNull</code>, <code class="inline">IsNotNull</code></td>
+    </tr>
+    <tr>
+        <td>NULL</td>
+        <td><code class="inline"><span class="hljs-literal">Null</span></code>, <code class="inline"><span
+                class="hljs-built_in">IsNull</span></code></td>
+    </tr>
+    <tr>
+        <td>LESS_THAN</td>
+        <td><code class="inline">LessThan</code>, <code class="inline">IsLessThan</code></td>
+    </tr>
+    <tr>
+        <td>LESS_THAN_EQUAL</td>
+        <td><code class="inline">LessThanEqual</code>, <code class="inline">IsLessThanEqual</code></td>
+    </tr>
+    <tr>
+        <td>LIKE</td>
+        <td><code class="inline"><span class="hljs-keyword">Like</span></code>, <code class="inline">IsLike</code></td>
+    </tr>
+    <tr>
+        <td>NEAR</td>
+        <td><code class="inline"><span class="hljs-keyword">Near</span></code>, <code class="inline">IsNear</code></td>
+    </tr>
+    <tr>
+        <td>NOT</td>
+        <td><code class="inline"><span class="hljs-keyword">IsNot</span></code>, <code class="inline"><span
+                class="hljs-literal">Not</span></code>, <code class="inline">IsNotEqualTo</code>, <code class="inline">DoesNotEqual</code>
+        </td>
+    </tr>
+    <tr>
+        <td>NOT_IN</td>
+        <td><code class="inline">NotIn</code>, <code class="inline">IsNotIn</code></td>
+    </tr>
+    <tr>
+        <td>NOT_LIKE</td>
+        <td><code class="inline">NotLike</code>, <code class="inline">IsNotLike</code></td>
+    </tr>
+    <tr>
+        <td>REGEX</td>
+        <td><code class="inline"><span class="hljs-built_in">Regex</span></code>, <code
+                class="inline">MatchesRegex</code>, <code class="inline"><span
+                class="hljs-keyword">Matches</span></code></td>
+    </tr>
+    <tr>
+        <td>STARTING_WITH</td>
+        <td><code class="inline">StartingWith</code>, <code class="inline">IsStartingWith</code>, <code class="inline">StartsWith</code>
+        </td>
+    </tr>
+    <tr>
+        <td>TRUE</td>
+        <td><code class="inline"><span class="hljs-literal">True</span></code>, <code class="inline"><span
+                class="hljs-keyword">IsTrue</span></code></td>
+    </tr>
+    </tbody>
+</table>
+<p>If no suffix is present to determine the operator by, it is assumed that the <code class="inline"><span
+        class="hljs-keyword">IS</span></code> operator was intended.</p>
+<div class="header header-2" id="data-functions"><span><span>Data Functions</span></span><a
+        href="#/readme#data-functions" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>Data functions determine what should be done with a particular selection of entities before a result is returned. For
+    instance,
+    the <code class="inline"><span class="hljs-built_in">count</span></code> data function just returns the collection
+    size for a subset of data, thus allowing you to start your query method with
+    <code class="inline"><span class="hljs-built_in">count</span></code> and expect it to return the size of the
+    selection.</p>
+<p>By extending the data functions, you are also extending the DSL for query methods by allowing various new data
+    function names to be
+    used in the beginning of a query method's name.</p>
+<p>Available data functions:</p>
+<table class="ng-scope table">
+    <thead>
+    <tr>
+        <th>Function</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code class="inline"><span class="hljs-built_in">count</span></code></td>
+        <td>Returns the number of items that were selected</td>
+    </tr>
+    <tr>
+        <td><code class="inline"><span class="hljs-keyword">delete</span></code></td>
+        <td>Deletes all the selected items</td>
+    </tr>
+    </tbody>
+</table>
+<div class="header header-2" id="data-stores"><span><span>Data Stores</span></span><a
+        href="#/readme#data-stores" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>This framework has an abstraction hiding away the details of where and how entities are stored and are looked up. The
+    default
+    behavior is, of course, to keep everything in memory. It might, however, be necessary to delegate this to some
+    external service
+    or entity, such as an im-memory data store, a distributed cache, or an actual database.</p>
+<p>All you have to do is implement the <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+        class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.store</span><span
+        class="hljs-selector-class">.DataStore</span></code> interface and point it to the right direction.</p>
+<p>Currently available implementations of the data store abstraction are:</p>
+<ul>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.store</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.MemoryDataStore</span></code> which, as the name implies, holds everything in
+        memory
+    </li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.store</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.EventPublishingDataStore</span></code> which acts as a wrapper around another,
+        delegate
+        data store to add event publishing capabilities.
+    </li>
+</ul>
+<p>A data store <em>has to</em> support these operations:</p>
+<ul>
+    <li><code class="inline">hasKey</code>: to be able to tell whether or not it contains a given entity</li>
+    <li><code class="inline"><span class="hljs-keyword">save</span></code>: to store an object at a given key</li>
+    <li><code class="inline"><span class="hljs-keyword">delete</span></code>: to delete an item by its key</li>
+    <li><code class="inline">retrieve</code>: to return an object from a key</li>
+    <li><code class="inline"><span class="hljs-built_in">keys</span></code>: to return all the keys that it has stored
+    </li>
+    <li><code class="inline">retrieveAll</code>: to return all the entities that it has stored</li>
+    <li><code class="inline"><span class="hljs-built_in">truncate</span></code>: to delete all items at once</li>
+    <li><code class="inline">getEntityType</code>: to tell us what type of object it is storing</li>
+</ul>
+<p>As you can see, this is a good abstraction of a key-value store that is centered around a particular object type.</p>
+<p>This abstraction let's us create a separate data store for each object type, and bind them to their individual
+    repositories.</p>
+<p>Additionally, if you want to support more sophisticated operations and enable batching and operation queueing, your
+    repository can implement <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.store</span><span
+            class="hljs-selector-class">.QueueingDataStore</span></code> which introduces the following
+    three operations:</p>
+<ul>
+    <li><code class="inline"><span class="hljs-built_in">flush</span></code>: to flush the queue and commit all issued
+        operations
+    </li>
+    <li><code class="inline">startBatch</code>: to start a batch of operations</li>
+    <li><code class="inline"><span class="hljs-keyword">end</span></code>: to end the batch that was indicated</li>
+</ul>
+<p>Certain repository methods can take advantage of these additional functionality if provided.</p>
+<div class="header header-2" id="result-adapters"><span><span>Result Adapters</span></span><a
+        href="#/readme#result-adapters" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>Many times the actual implementation methods for an operation return very generic results, such as a list or a set,
+    whereas the
+    required return type for the repository interface method might be something else. Suppose for instance, that the
+    implementation
+    method returns a List, while the interface method returns just one instance.</p>
+<p>In such cases, it is necessary to adapt the results to the output format, and that is exactly what the result
+    adapters are for.</p>
+<p>They have a priority order which dictates in what order they will be executed:</p>
+<table class="ng-scope table">
+    <thead>
+    <tr>
+        <th>Adapter</th>
+        <th>Converts from</th>
+        <th>Converts to</th>
+        <th>Priority</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><code class="inline">VoidResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-keyword">void</span></code></td>
+        <td><code class="inline"><span class="hljs-comment">*</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-inf</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">SameTypeResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-comment">*</span></code></td>
+        <td><code class="inline"><span class="hljs-comment">*</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-500</span></code></td>
+        <td>Used when the source and target are of the same type</td>
+    </tr>
+    <tr>
+        <td><code class="inline">NumberIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Number</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-425</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">SimpleIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-comment">*</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-400</span></code></td>
+        <td>When we want to convert an object to its iterable</td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullSimpleResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Object</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-400</span></code></td>
+        <td>Used when target type is a single object</td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToIteratorResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterator</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-350</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">IteratorIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterator</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-350</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToCollectionResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline">Collection</code></td>
+        <td><code class="inline"><span class="hljs-deletion">-300</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">CollectionIterableResultAdapter</code></td>
+        <td><code class="inline">Collection</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-300</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">SliceIterableResultAdapter</code></td>
+        <td><code class="inline">Slice</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-250</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-250</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToSliceResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline">Slice</code></td>
+        <td><code class="inline"><span class="hljs-deletion">-200</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">PageIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-keyword">Page</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-200</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToFutureResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline"><span class="hljs-keyword">Future</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-150</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">GeoPageIterableResultAdapter</code></td>
+        <td><code class="inline">GeoPage</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-150</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">NullToListenableFutureResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-literal">null</span></code></td>
+        <td><code class="inline">ListenableFuture</code></td>
+        <td><code class="inline"><span class="hljs-deletion">-100</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">FutureIterableResultAdapter</code></td>
+        <td><code class="inline"><span class="hljs-keyword">Future</span></code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-100</span></code></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td><code class="inline">ListenableFutureIterableResultAdapter</code></td>
+        <td><code class="inline">ListenableFuture</code></td>
+        <td><code class="inline"><span class="hljs-built_in">Iterable</span></code></td>
+        <td><code class="inline"><span class="hljs-deletion">-50</span></code></td>
+        <td></td>
+    </tr>
+    </tbody>
+</table>
+<div class="header header-2" id="custom-implementations-and-type-mapping-context"><span><span>Custom Implementations and Type Mapping Context</span></span><a
+        href="#/readme#custom-implementations-and-type-mapping-context" class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>You can map custom implementations to repository interfaces. To this end, a type mapping context exists which will
+    let you bind
+    particular repository interface super types to custom implementation classes. The methods are then looked up
+    according to their
+    signature.</p>
+<p>Implementations registered with a type mapping context are made available to all repository factory instances and are
+    thus shared.</p>
+<p>When proxying a repository method this is the order with which a method is bound to an implementation:</p>
+<ol>
+    <li>We first look for custom implementations supplied directly to the factory while requesting a mock instance</li>
+    <li>We look at globally available implementations supplied through the configuration object</li>
+    <li>We try to interpret the method name as a query.</li>
+</ol>
+<div class="header header-2" id="spring-data-extensions"><span
+       ><span>Spring Data Extensions</span></span><a href="#/readme#spring-data-extensions"
+                                                                      class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>Spring Data extensions are modules provided by the Spring Data team or third parties that provide additional support
+    for more
+    data sources.</p>
+<p>These extensions can receive support from this mocking framework if you register a corresponding implementation in
+    the type mapping context.</p>
+<p>We have implemented the following data extensions.</p>
+<div class="header header-3" id="support-for-crudrepository"><span
+       ><span>Support for CrudRepository</span></span><a href="#/readme#support-for-crudrepository"
+                                                                          class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>All methods introduced in <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+        class="hljs-selector-class">.CrudRepository</span></code> are implemented in a class called
+    <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+            class="hljs-selector-class">.DefaultCrudRepository</span></code>. This class is registered with the type
+    mapping
+    for all repositories by default.</p>
+<div class="header header-3" id="support-for-pagingandsortingrepository"><span><span>Support for PagingAndSortingRepository</span></span><a
+        href="#/readme#support-for-pagingandsortingrepository" class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>All methods introduced in <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+        class="hljs-selector-class">.PagingAndSortingRepository</span></code> are implemented in a class called
+    <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+            class="hljs-selector-class">.DefaultPagingAndSortingRepository</span></code>. This class is registered with
+    the type mapping
+    for all repositories by default.</p>
+<div class="header header-3" id="support-for-query-by-example-"><span><span>Support for "Query by Example"</span></span><a
+        href="#/readme#support-for-query-by-example-" class="pull-right"><i class="glyphicon glyphicon-link"></i></a>
+</div>
+<p>Query by example is a concept introduced in Spring Data 1.12 and as such might not be shipped with your version of
+    Spring
+    Data by default.</p>
+<p>That is why we first check to see if interface <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+        class="hljs-selector-class">.query</span><span class="hljs-selector-class">.QueryByExampleExecutor</span></code>
+    is found
+    in the classpath. If so, then we register supporting type <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+            class="hljs-selector-class">.DefaultQueryByExampleExecutor</span></code>
+    which includes methods that are capable of taking care of all methods introduced in this interface.</p>
+<div class="header header-3" id="support-for-querydsl"><span><span>Support for QueryDSL</span></span><a
+        href="#/readme#support-for-querydsl" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>There is an extension for <a href="http://www.querydsl.com">QueryDSL</a> for Spring Data that will let you use a
+    fluent API to
+    interact with the data store, while hiding away the complexities of talking to the database itself.</p>
+<p>If the <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.querydsl</span><span
+        class="hljs-selector-class">.QueryDslPredicateExecutor</span></code> interface is found in the classpath and,
+    additionally,
+    we can also find the CGLib library in the classpath (which is required for QueryDSL to function), we assume
+    QueryDSL support to be enabled. We then add the <code class="inline">com<span
+            class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.repository</span><span class="hljs-selector-class">.DefaultQueryDslPredicateExecutor</span></code>
+    implementation to the type mapping context.</p>
+<div class="header header-4" id="note-on-additional-dependencies"><span><span>Note on additional dependencies</span></span><a
+        href="#/readme#note-on-additional-dependencies" class="pull-right"><i class="glyphicon glyphicon-link"></i></a>
+</div>
+<p><code class="inline">DefaultQueryDslPredicateExecutor</code> uses the <code class="inline"><span
+        class="hljs-selector-tag">com</span><span class="hljs-selector-class">.querydsl</span><span
+        class="hljs-selector-pseudo">:querydsl-collections</span></code> to query the underlying data store mock
+    the same way as the QueryDSL framework itself. As such, if you want to be able to mock repositories that use
+    QueryDSL
+    operations, you will have to add a dependency to <code class="inline">querydsl-collections</code>:</p>
+<pre class="ng-scope hljs"><code><span class="xml">
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupid</span>&gt;</span>com.querydsl<span class="hljs-tag">&lt;/<span
+        class="hljs-name">groupid</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactid</span>&gt;</span>querydsl-collections<span
+        class="hljs-tag">&lt;/<span class="hljs-name">artifactid</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$</span><span
+        class="hljs-template-variable">{latest-version}</span><span class="xml"><span class="hljs-tag">&lt;/<span
+        class="hljs-name">version</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span
+            class="hljs-name">scope</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</span></code>
+</pre>
+
+<div class="header header-3" id="support-for-jpa"><span><span>Support for JPA</span></span><a
+        href="#/readme#support-for-jpa" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>If we can find <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.jpa</span><span
+        class="hljs-selector-class">.repository</span><span class="hljs-selector-class">.JpaRepository</span></code> in
+    the classpath, we assume JPA support to be added.
+    As such, we will register <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+            class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+            class="hljs-selector-class">.data</span><span class="hljs-selector-class">.repository</span><span
+            class="hljs-selector-class">.DefaultJpaRepository</span></code> which will take care of all the
+    methods in the <code class="inline">JpaRepository</code> interface that are not already handled by other extensions.
+</p>
+<div class="header header-3" id="gemfire-support"><span><span>Gemfire Support</span></span><a
+        href="#/readme#gemfire-support" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>If <code class="inline">org<span class="hljs-selector-class">.springframework</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.gemfire</span><span
+        class="hljs-selector-class">.repository</span><span class="hljs-selector-class">.GemfireRepository</span></code>
+    is found in the classpath, we will assume that you want
+    to be able to mock Gemfire repositories as well. That is why we register <code class="inline">com<span
+            class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.repository</span><span
+            class="hljs-selector-class">.DefaultGemfireRepository</span></code>
+    to be able to take care of Gemfire-specific methods that aren't found on regular repositories.</p>
+<div class="header header-2" id="non-data-operation-handlers"><span
+       ><span>Non-Data-Operation Handlers</span></span><a href="#/readme#non-data-operation-handlers"
+                                                                           class="pull-right"><i
+        class="glyphicon glyphicon-link"></i></a></div>
+<p>Non-data-operation handlers, as the name suggests, are operation handlers that support invocation of methods that are
+    not
+    data-specific. Examples include <code class="inline">Object.<span class="hljs-keyword">equals</span>(<span
+            class="hljs-attr">...</span>)</code> and <code class="inline"><span
+            class="hljs-selector-tag">Object</span><span class="hljs-selector-class">.hashCode</span>(...)</code>.</p>
+<p>These are registered with <code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span
+        class="hljs-selector-class">.utils</span><span class="hljs-selector-class">.spring</span><span
+        class="hljs-selector-class">.data</span><span class="hljs-selector-class">.proxy</span><span
+        class="hljs-selector-class">.impl</span><span
+        class="hljs-selector-class">.NonDataOperationInvocationHandler</span></code> which has a <code
+        class="inline"><span class="hljs-function"><span class="hljs-title">register</span>(<span class="hljs-params">...</span>)</span></code>
+    method for the purpose.</p>
+<p>You can implement your own handlers, which will be investigated and invoked in the order in which they were
+    registered,
+    but these come with the framework:</p>
+<ul>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.proxy</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.regular</span><span
+            class="hljs-selector-class">.EqualsNonDataOperationHandler</span></code>: for handling <code class="inline"><span
+            class="hljs-built_in">Object</span>.<span class="hljs-keyword">equals</span>(<span class="hljs-built_in">Object</span>)</code>
+    </li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.proxy</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.regular</span><span class="hljs-selector-class">.HashCodeNonDataOperationHandler</span></code>
+        for handling <code class="inline"><span class="hljs-selector-tag">Object</span><span
+                class="hljs-selector-class">.hashCode</span>()</code></li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.proxy</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.regular</span><span class="hljs-selector-class">.ToStringNonDataOperationHandler</span></code>
+        for handling <code class="inline"><span class="hljs-selector-tag">Object</span><span
+                class="hljs-selector-class">.toString</span>()</code></li>
+</ul>
+<div class="header header-3" id="disclaimer"><span><span>Disclaimer</span></span><a
+        href="#/readme#disclaimer" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>The credit for fixing this goes to @Kaidjin who went all ninja on this and helped resolve #12 in all speed.</p>
+<div class="header header-2" id="event-listeners"><span><span>Event Listeners</span></span><a
+        href="#/readme#event-listeners" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>You can register event listeners for each of the following events:</p>
+<ul>
+    <li><code class="inline">BeforeInsertDataStoreEvent</code></li>
+    <li><code class="inline">AfterInsertDataStoreEvent</code></li>
+    <li><code class="inline">BeforeUpdateDataStoreEvent</code></li>
+    <li><code class="inline">AfterUpdateDataStoreEvent</code></li>
+    <li><code class="inline">BeforeDeleteDataStoreEvent</code></li>
+    <li><code class="inline">AfterDeleteDataStoreEvent</code></li>
+</ul>
+<p>The event handlers can then modify, take note of, or otherwise interact with the entities for which the event was
+    raised.</p>
+<p>If you use the <code class="inline"><span class="hljs-function"><span class="hljs-title">enableAuditing</span><span
+        class="hljs-params">()</span></span></code> feature above, an event listener (<code class="inline">com<span
+        class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+        class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+        class="hljs-selector-class">.store</span><span class="hljs-selector-class">.impl</span><span
+        class="hljs-selector-class">.AuditDataEventListener</span></code>)
+    will be registered with the configuration which will enable auditing features and will set relevant properties in
+    the appropriate
+    juncture by listening closely to the events listed above.</p>
+<div class="header header-3" id="auditing"><span><span>Auditing</span></span><a
+        href="#/readme#auditing" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>Out-of-the-box auditing is supported through this event mechanism for the usual <code class="inline">CreatedBy</code>,
+    <code class="inline">CreatedDate</code>, <code class="inline">LastModifiedBy</code>,
+    and <code class="inline">LastModifiedDate</code> audit annotations provided by Spring Data Commons. To support
+    user-related auditing (created by and last
+    modified by) you will need to supply an <code class="inline">AuditorAware</code> or accept the default one, which
+    will always return a String object with
+    value, <code class="inline"><span class="hljs-variable">&amp;quot</span>;User<span
+            class="hljs-variable">&amp;quot</span>;</code>.</p>
+<p>By default, auditing is disabled. This is to follow in the footprints of Spring. Since Spring Data asks you to
+    explicitly enable
+    auditing, this framework, too, pushes for the same requirement.</p>
+<div class="header header-4" id="note-on-additional-dependencies"><span><span>Note on additional dependencies</span></span><a
+        href="#/readme#note-on-additional-dependencies" class="pull-right"><i class="glyphicon glyphicon-link"></i></a>
+</div>
+<p>When you enable auditing, Spring Data will use the <code class="inline">joda-<span class="hljs-built_in">time</span></code>
+    library to achieve precision timestamping. As such, when you
+    enable auditing, you will have to add a dependency on <code class="inline">joda-<span
+            class="hljs-built_in">time</span>:joda-<span class="hljs-built_in">time</span></code>.</p>
+<div class="header header-3" id="a-note-on-distinct-selections"><span><span>A Note on Distinct Selections</span></span><a
+        href="#/readme#a-note-on-distinct-selections" class="pull-right"><i class="glyphicon glyphicon-link"></i></a>
+</div>
+<p>When using the <code class="inline"><span class="hljs-keyword">distinct</span></code> modifier for selection, this
+    framework will use the internal <code class="inline"><span class="hljs-function"><span
+            class="hljs-title">hashCode</span><span class="hljs-params">()</span></span></code> of the object being read
+    from the data store abstraction to figure out distinct values.</p>
+<p>This is because as opposed to most data stores, we do not have any notion of row-by-row or object-to-object equality
+    relations
+    and at the moment we cannot figure out if two objects should be considered as equal, unless they have a <code
+            class="inline"><span class="hljs-built_in">hash</span>Code</code>.</p>
+<p>Having a <code class="inline"><span class="hljs-built_in">hash</span>Code</code> is good programming practice anyway,
+    so I don't feel too bad about not having implemented this for the moment.</p>
+<div class="header header-3" id="referenced-objects"><span><span>Referenced Objects</span></span><a
+        href="#/readme#referenced-objects" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>In this framework referenced objects are not going to be separated out. We have not implemented a full-fledged ORM
+    and that is not
+    the plan -- at least for the moment.</p>
+<p>When you save an object such as this:</p>
+<pre class="ng-scope hljs"><code class="lang-java"><span class="hljs-keyword">public</span> <span
+        class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EntityA</span> {</span>
+
+    <span class="hljs-meta">@Reference</span>
+    <span class="hljs-keyword">private</span> EntityB referencedObject;
+
+}
+</code></pre>
+<p>we are not going to automatically create a data store for the <code class="inline">EntityB</code> class and store the
+    values there. Though it doesn't seem to
+    be to complicated to implement, at the moment it is not how we do things.</p>
+<div class="header header-2" id="key-generation"><span><span>Key Generation</span></span><a
+        href="#/readme#key-generation" class="pull-right"><i class="glyphicon glyphicon-link"></i></a></div>
+<p>When storing data in the data store, we require a key. That is because the underlying data store abstraction is
+    essentially a key-value
+    store.</p>
+<p>This means that you will either have to provide keys for every entity you save, or that there must be some sort of
+    key generation
+    mechanism in place to handle that for you. Well, luckily, there is one. Here is a list of the various key generators
+    that come
+    with this framework, and you can easily add your own by implementing <code class="inline">com<span
+            class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.KeyGenerator</span></code>.</p>
+<ul>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.KeyGenerator</span></code>:
+        when you genuinely do not wish to generate keys automatically. This key generator
+        will basically generate <code class="inline"><span class="hljs-literal">null</span></code> keys.
+    </li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span class="hljs-selector-class">.UUIDKeyGenerator</span></code>:
+        generates UUID values and returns them as Strings.
+    </li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span
+            class="hljs-selector-class">.SequentialIntegerKeyGenerator</span></code>: generates <code
+            class="inline"><span class="hljs-keyword">int</span></code> values starting from <code
+            class="inline">1</code></li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span class="hljs-selector-class">.SequentialLongKeyGenerator</span></code>:
+        generates <code class="inline"><span class="hljs-keyword">long</span></code> values starting from <code
+                class="inline">1</code></li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span class="hljs-selector-class">.ConfigurableSequentialIntegerKeyGenerator</span></code>:
+        generates <code class="inline"><span class="hljs-keyword">int</span></code> values that start
+        from a custom <code class="inline">initialValue</code> and increase/decrease by a custom <code
+                class="inline"><span class="hljs-built_in">step</span></code></li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span class="hljs-selector-class">.ConfigurableSequentialLongKeyGenerator</span></code>:
+        generates <code class="inline"><span class="hljs-keyword">long</span></code> values that start
+        from a custom <code class="inline">initialValue</code> and increase/decrease by a custom <code
+                class="inline"><span class="hljs-built_in">step</span></code></li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span
+            class="hljs-selector-class">.RandomIntegerKeyGenerator</span></code>: generates random, unique <code
+            class="inline"><span class="hljs-keyword">int</span></code> values
+    </li>
+    <li><code class="inline">com<span class="hljs-selector-class">.mmnaseri</span><span class="hljs-selector-class">.utils</span><span
+            class="hljs-selector-class">.spring</span><span class="hljs-selector-class">.data</span><span
+            class="hljs-selector-class">.domain</span><span class="hljs-selector-class">.impl</span><span
+            class="hljs-selector-class">.key</span><span
+            class="hljs-selector-class">.RandomLongKeyGenerator</span></code>: generates random, unique <code
+            class="inline"><span class="hljs-keyword">long</span></code> values
+    </li>
+</ul>
+<p>If you are using the DSL to configure the repository factory and do not mention which of the above to use, and you
+    don't
+    explicitly say that you do not want key generation to be turned off, one of the above will be chosen for you
+    automatically
+    based on the type of the key.</p>
+</div>
+
+
+</body>
+</html>

@@ -29,12 +29,12 @@ of 15 or more people, or Developer Support for smaller teams.
 
 <p>
   <a href="https://mmnaseri.github.io/spring-data-mock">
-    <img src="offer-enterprise.svg" alt="Enterprise Support" width="512px">
+    <img src="offers_enterprise.svg" alt="Enterprise Support" width="512px">
   </a>
 </p>
 <p>
   <a href="https://mmnaseri.github.io/spring-data-mock">
-    <img src="offer-developer.svg" alt="Developer Support" width="512px">
+    <img src="offers_developer.svg" alt="Developer Support" width="512px">
   </a>
 </p>
 
