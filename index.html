@@ -3,46 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Spring Data Mock</title>
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,800|IBM+Plex+Sans:400,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,900" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
 
     <style>
         html, body {
-            font-family: "Work Sans","IBM Plex Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",sans-serif
-        }
-        body.landing {
             background-color: rgb(52, 0, 164);
             color: rgb(210,210,210);
+            font-family: "Work Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            color: dodgerblue;
+            text-decoration: none;
         }
         .code code {
             background-color: rgba(0,0,0,0.1);
             color: dodgerblue;
         }
-        .content {
-            margin: 120px auto;
+        .container {
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 640px;
+            padding: 16px;
+        }
+        .container.content {
+            margin-bottom: 120px;
+            margin-top: 120px;
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+        }
+        .font-x-large {
+            font-size: x-large;
+        }
+        .font-large {
+            font-size: large;
+        }
+        .font-medium {
+            font-size: medium;
+        }
+        .font-small {
+            font-size: small;
+        }
+        .font-x-small {
+            font-size: x-small;
         }
         .footer {
             font-size: small;
             margin: 64px 0;
         }
-        .footer a {
-            color: rgb(210,210,210);
-        }
-        .freshbits {
-            color: white;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-weight: 800;
-        }
-        .large {
-            font-size: large;
-        }
         .navbar {
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
             height: 64px;
+            justify-content: space-between;
         }
         .navbar a {
             align-items: center;
@@ -51,7 +66,14 @@
             flex-direction: column;
             height: 100%;
             justify-content: center;
-            padding: 16px 24px;
+            padding: 0 16px;
+            text-decoration: none;
+        }
+        .navbar .navbar-section:first-child {
+            margin-left: -16px;
+        }
+        .navbar .navbar-section:last-child {
+            margin-right: -16px;
         }
         .navbar a:hover {
             background-color: white;
@@ -63,14 +85,31 @@
             font-weight: 900;
             text-transform: uppercase;
         }
+        .navbar-section {
+            align-items: stretch;
+            display: flex;
+            flex-direction: row;
+        }
+        .navbar-section.mobile {
+            align-items: center;
+            display: flex;
+            fill: white;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.5;
+        }
+        .navbar-section.mobile:hover {
+            opacity: 1;
+            transition: all 0.5s ease-in-out;
+        }
+        .octicon {
+            opacity: 0;
+        }
         .underline {
             text-decoration: underline;
         }
         .uppercase {
             text-decoration: uppercase;
-        }
-        .x-large {
-            font-size: x-large;
         }
         h1, h2, h3, h4, h5, h6 {
             color: rgb(253,159,50);
@@ -80,10 +119,15 @@
         }
         h2 {
             margin-top: 3rem;
+            text-transform: uppercase;
         }
         h3 {
             font-weight: 900;
             text-transform: uppercase;
+        }
+        h4 {
+            font-weight: normal;
+            /*text-transform: uppercase;*/
         }
         a.profile img {
             border-radius: 50%;
@@ -111,113 +155,143 @@
         table.offers tr td .price {
             font-size: x-large;
         }
+        table.offers button {
+            background: transparent;
+            color: white;
+            padding: 8px 16px;
+            width: 100%;
+        }
+        @media (max-width:640px) {
+            .container.content {
+                margin-bottom: 60px;
+                margin-top: 60px;
+                transition: all 0.5s ease-in-out;
+            }
+            .hidden-xs {
+                display: none;
+                transition: all 0.5s ease-in-out;
+            }
+            .navbar-brand {
+                font-size: x-large;
+                transition: all 0.5s ease-in-out;
+            }
+            .octicon {
+                opacity: 1;
+                transition: all 0.5s ease-in-out;
+            }
+            .visible-xs {
+                display: block;
+                transition: all 0.5s ease-in-out;
+            }
+        }
     </style>
 </head>
-<body class="landing">
+<body>
 
-<header class="navbar">
+<header class="container navbar">
     <section class="navbar-section">
         <a href="#" class="navbar-brand">Spring Data Mock</a>
-        <!--<a href="#" class="navbar-brand">S-D-M</a>-->
     </section>
-    <section class="navbar-section">
-        <a href="#download" class="btn btn-link">Download</a>
-        <a href="/docs" class="btn btn-link">Docs</a>
-        <a href="/support" class="btn btn-link">Support</a>
-        <a href="/about" class="btn btn-link">About</a>
+    <section class="navbar-section mobile visible-xs">
+        <svg width="32" height="32" class="octicon octicon-three-bars" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg>
+        <!--<svg width="256" height="256" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"></path></svg>-->
+    </section>
+    <section class="navbar-section hidden-xs">
+        <a href="./docs#download" class="btn btn-link">Download</a>
+        <a href="./docs" class="btn btn-link">Docs</a>
+        <a href="#support" class="btn btn-link">Support</a>
+        <a href="#about" class="btn btn-link">About</a>
     </section>
 </header>
 
-<div class="container content grid-sm">
-    <div class="columns">
-        <div class="column">
+<div class="container content">
+    <section id="introduction" class="font-x-large">
+        <h1>A lightning fast framework for mocking Spring Data repositories.</h1>
+        <p>
+            Spring Data provides a great foundation for separating data from business concerns. However, when
+            you want to test your application, it forces you to either write lots of boilerplate code or start
+            a full blown application context and backing database. This wastes expensive developer time, makes
+            test execution significantly slower, and is completely unnecessary.
+        </p>
+        <p class="underline">
+            Spring Data Mock will save you time and money, while making your tests run faster.
+        </p>
+        <p>
+            Reduce the amount of code you need to write, while using a reliable infrastructure that replicates
+            what Spring would do with an actual database, only in-memory.
+        </p>
+    </section>
 
-            <section id="introduction" class="x-large">
-                <h1>A lightning fast framework for mocking Spring Data repositories.</h1>
-                <p>
-                    Spring Data provides a great foundation for separating data from business concerns. However, when
-                    you want to test your application, it forces you to either write lots of boilerplate code or start
-                    a full blown application context and backing database. This wastes expensive developer time, makes
-                    test execution significantly slower, and is completely unnecessary.
-                </p>
-                <p class="underline">
-                    Spring Data Mock will save you time and money, while making your tests run faster.
-                </p>
-                <p>
-                    Reduce the amount of code you need to write, while using a reliable infrastructure that replicates
-                    what Spring would do with an actual database, only in-memory.
-                </p>
-            </section>
+    <section id="quick-start" class="font-large">
+        <h2>Commercial Support</h2>
+        <p>
+            Kick start a new project or boost your existing team's productivity. <span class="underline">We'll show you
+            how to save LOTS of developer time.</span> We provide dedicated phone, email and chat support to get you
+            going. Purchase Enterprise Support for teams of 15 or more people, or Developer Support for smaller teams.
+        </p>
+        <table class="offers">
+            <tr>
+                <td>
+                    <h3>Enterprise Support</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
+                    </p>
+                    <div class="price">
+                        $900 USD/year
+                    </div>
+                    <button class="btn">Buy</button>
+                </td>
+                <td>
+                    <h3>Developer Support</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
+                    </p>
+                    <div class="price">
+                        $500 USD/year
+                    </div>
+                    <button class="btn">Buy</button>
+                </td>
+            </tr>
+        </table>
 
-            <section id="quick-start">
-                <h2>Commercial Support</h2>
-                <p>
-                    Kick start a new project or boost your existing team's productivity. <span class="underline">We'll show you how to save
-                    LOTS of developer time.</span> We provide dedicated phone, email and chat support to get you going.
-                    Purchase Enterprise Support for teams of 15 or more people, or Developer Support for smaller teams.
-                </p>
-                <table class="offers">
-                    <tr>
-                        <td>
-                            <h3>Enterprise Support</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
-                            </p>
-                            <div class="price">
-                                $900 USD/year
-                            </div>
-                        </td>
-                        <td>
-                            <h3>Developer Support</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
-                            </p>
-                            <div class="price">
-                                $500 USD/year
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+        <h4>Buyer Protection</h4>
+        <p>
+            You can be confident that when you purchase products and services from us you won't have any problems.
+            We use <a href="https://stripe.com">Stripe</a> to process your payment and
+            <a href="https://freshbits.io">freshbits</a> to manage your subscription. And, if you're not happy with the
+            service we provide you, we'll gladly refund your money, no questions asked.
+        </p>
 
-                <p style="margin-top:42px;">
-                    We provide a <span class="uppercase">money back guarantee</span>. If you're not happy with the
-                    service we provide, we'll refund your purchase, no questions asked. We use
-                    <a href="https://stripe.com">Stripe</a> to process your payments.
-                </p>
+    </section>
 
-            </section>
-
-            <section id="about" class="about">
-                <h2>Team</h2>
-                <a class="profile" href="https://twitter.com/mmnaseri">
-                    <img src="https://pbs.twimg.com/profile_images/1197011266/180px-Milad_400x400.jpg" alt="Me" />
-                </a>
-                <p>
-                    Hey, I'm <a href="https://twitter.com/mmnaseri">Milad Naseri</a>. I'm a professional software
-                    engineer and TDD enthusiast in Kirkland, Washington.
-                </p>
-                <p>
-                    I wrote SDM because I was testing some pretty complicated services that relied on Spring
-                    Data. It was a lot of hassle to keep the test environment up-to-date with the test
-                    requirements as well as the real world situation. I wanted to be able to isolate my services and
-                    test them regardless of the database features.
-                </p>
-                <p>
-                    Something something something something something something something something.
-                    Something something something something something something something something.
-                    Something something something something something something something something.
-                    Something something something something something something something something.
-                </p>
-            </section>
-
-        </div>
-    </div>
+    <section id="about" class="about font-large">
+        <h2>Team</h2>
+        <a class="profile" href="https://twitter.com/mmnaseri">
+            <img src="https://pbs.twimg.com/profile_images/1197011266/180px-Milad_400x400.jpg" alt="Me" />
+        </a>
+        <p>
+            Hey, I'm <a href="https://twitter.com/mmnaseri">Milad Naseri</a>. I'm a professional software
+            engineer and TDD enthusiast from Kirkland, Washington USA.
+        </p>
+        <p>
+            I wrote SDM because I was testing some pretty complicated services that relied on Spring
+            Data. It was a lot of hassle to keep the test environment up-to-date with the test
+            requirements as well as the real world situation. I wanted to be able to isolate my services and
+            test them regardless of the database features.
+        </p>
+        <p>
+            Something something something something something something something something.
+            Something something something something something something something something.
+            Something something something something something something something something.
+            Something something something something something something something something.
+        </p>
+    </section>
 </div>
 
-<div class="container grid-sm">
+<div class="container">
     <div class="footer">
         Copyright &copy; Milad Naseri. All rights reserved.<br>
-        Sell products and services from your GitHub account using  <a href="https://freshbits.io" class="freshbits">freshbits</a>
+        Sell products and services from your GitHub account using  <a href="https://freshbits.io">freshbits</a>
     </div>
 </div>
 
