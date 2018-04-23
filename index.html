@@ -2,302 +2,308 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Spring Data Mock</title>
-    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,900" rel="stylesheet">
-
-    <style>
-        html, body {
-            background-color: rgb(52, 0, 164);
-            color: rgb(210,210,210);
-            font-family: "Work Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",sans-serif;
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
-        a {
-            color: dodgerblue;
-            text-decoration: none;
-        }
-        .code code {
-            background-color: rgba(0,0,0,0.1);
-            color: dodgerblue;
-        }
-        .container {
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 640px;
-            padding: 16px;
-        }
-        .container.content {
-            margin-bottom: 120px;
-            margin-top: 120px;
-            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
-        }
-        .font-x-large {
-            font-size: x-large;
-        }
-        .font-large {
-            font-size: large;
-        }
-        .font-medium {
-            font-size: medium;
-        }
-        .font-small {
-            font-size: small;
-        }
-        .font-x-small {
-            font-size: x-small;
-        }
-        .footer {
-            font-size: small;
-            margin: 64px 0;
-        }
-        .navbar {
-            align-items: stretch;
-            display: flex;
-            flex-direction: row;
-            height: 64px;
-            justify-content: space-between;
-        }
-        .navbar a {
-            align-items: center;
-            border-radius: 0;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            justify-content: center;
-            padding: 0 16px;
-            text-decoration: none;
-        }
-        .navbar .navbar-section:first-child {
-            margin-left: -16px;
-        }
-        .navbar .navbar-section:last-child {
-            margin-right: -16px;
-        }
-        .navbar a:hover {
-            background-color: white;
-            color: rgb(52, 0, 164);
-        }
-        .navbar .navbar-brand {
-            color: rgb(253,159,50);
-            color: rgb(230,230,230);
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-        .navbar-section {
-            align-items: stretch;
-            display: flex;
-            flex-direction: row;
-        }
-        .navbar-section.mobile {
-            align-items: center;
-            display: flex;
-            fill: white;
-            flex-direction: column;
-            justify-content: center;
-            opacity: 0.5;
-        }
-        .navbar-section.mobile:hover {
-            opacity: 1;
-            transition: all 0.5s ease-in-out;
-        }
-        .octicon {
-            opacity: 0;
-        }
-        .underline {
-            text-decoration: underline;
-        }
-        .uppercase {
-            text-decoration: uppercase;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: rgb(253,159,50);
-        }
-        h1 {
-            font-weight: 600;
-        }
-        h2 {
-            margin-top: 3rem;
-            text-transform: uppercase;
-        }
-        h3 {
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-        h4 {
-            font-weight: normal;
-            /*text-transform: uppercase;*/
-        }
-        a.profile img {
-            border-radius: 50%;
-            float: right;
-            margin-bottom: 16px;
-            margin-left: 16px;
-            width: 180px;
-        }
-        table.offers {
-            background-color: rgba(0,0,0,0.1);
-            margin-top: 42px;
-            width: 100%;
-        }
-        table.offers tr {
-            vertical-align: top;
-        }
-        table.offers tr td {
-            border: 3px solid transparent;
-            padding: 32px;
-            width: 50%;
-        }
-        table.offers tr td:hover {
-            border: 3px solid white;
-        }
-        table.offers tr td .price {
-            font-size: x-large;
-        }
-        table.offers button {
-            background: transparent;
-            color: white;
-            padding: 8px 16px;
-            width: 100%;
-        }
-        @media (max-width:640px) {
-            .container {
-                max-width: 100%;
-                transition: all 0.5s ease-in-out;
-            }
-            .container.content {
-                margin: 60px 0;
-                transition: all 0.5s ease-in-out;
-            }
-            .hidden-xs {
-                display: none;
-                transition: all 0.5s ease-in-out;
-            }
-            .navbar-brand {
-                font-size: x-large;
-                transition: all 0.5s ease-in-out;
-            }
-            .octicon {
-                opacity: 1;
-                transition: all 0.5s ease-in-out;
-            }
-            .visible-xs {
-                display: block;
-                transition: all 0.5s ease-in-out;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.3.0/dist/milligram.min.css" integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./stripe.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/jquery.sidr.min.js" integrity="sha256-/VeucihXSoNSfLiRfsWg/5RKp4eTTuW4Wnl28lm3rjE=" crossorigin="anonymous"></script>
+    <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
 
 <header class="container navbar">
-    <section class="navbar-section">
+    <div class="navbar-section">
         <a href="#" class="navbar-brand">Spring Data Mock</a>
-    </section>
-    <section class="navbar-section mobile visible-xs">
-        <svg width="32" height="32" class="octicon octicon-three-bars" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path></svg>
-        <!--<svg width="256" height="256" class="octicon octicon-x" viewBox="0 0 12 16" version="1.1" aria-hidden="true"><path fill-rule="evenodd" d="M7.71 8.23l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75L1 11.98l3.75-3.75L1 4.48 2.48 3l3.75 3.75L9.98 3l1.48 1.48-3.75 3.75z"></path></svg>-->
-    </section>
-    <section class="navbar-section hidden-xs">
-        <a href="./docs#download" class="btn btn-link">Download</a>
-        <a href="./docs" class="btn btn-link">Docs</a>
-        <a href="#support" class="btn btn-link">Support</a>
-        <a href="#about" class="btn btn-link">About</a>
-    </section>
+    </div>
+    <div class="navbar-section mobile visible-xs">
+        <svg class="octicon octicon-three-bars" viewBox="0 0 12 16" version="1.1" aria-hidden="true">
+            <path fill-rule="evenodd" d="M11.41 9H.59C0 9 0 8.59 0 8c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zm0-4H.59C0 5 0 4.59 0 4c0-.59 0-1 .59-1H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1h.01zM.59 11H11.4c.59 0 .59.41.59 1 0 .59 0 1-.59 1H.59C0 13 0 12.59 0 12c0-.59 0-1 .59-1z"></path>
+        </svg>
+    </div>
+    <div class="navbar-section hidden-xs">
+        <a href="./docs#download">Download</a>
+        <a href="./docs">Docs</a>
+        <a href="#support">Support</a>
+        <a href="#about">About</a>
+    </div>
 </header>
 
+<div class="mobile nav">
+    <ul>
+        <li>
+            <a href="./docs#download">Download</a>
+        </li>
+        <li>
+            <a href="./docs">Docs</a>
+        </li>
+        <li>
+            <a href="#support">Support</a>
+        </li>
+        <li>
+            <a href="#about">About</a>
+        </li>
+    </ul>
+</div>
+
 <div class="container content">
-    <section id="introduction" class="font-x-large">
-        <h1>A lightning fast framework for mocking Spring Data repositories.</h1>
-        <p>
-            Spring Data provides a great foundation for separating data from business concerns. However, when
-            you want to test your application, it forces you to either write lots of boilerplate code or start
-            a full blown application context and backing database. This wastes expensive developer time, makes
-            test execution significantly slower, and is completely unnecessary.
-        </p>
-        <p class="underline">
-            Spring Data Mock will save you time and money, while making your tests run faster.
-        </p>
-        <p>
+    <div id="introduction" class="row">
+        <div class="column">
+            <h1>A lightning fast framework for mocking Spring Data repositories</h1>
+            <p>
+                Spring Data provides a great foundation for separating data from business concerns. However, when
+                you want to test your application, it forces you to either write lots of boilerplate code or start
+                a full blown application context and backing database. This wastes expensive developer time, makes
+                tests run slower, and is completely unnecessary.
+            </p>
+            <p class="font-highlight font-x-large">
+                Spring Data Mock will save you time and money, while making your tests run faster.
+            </p>
+            <p>
             Reduce the amount of code you need to write, while using a reliable infrastructure that replicates
             what Spring would do with an actual database, only in-memory.
-        </p>
-    </section>
+            </p>
+        </div>
+    </div>
 
-    <section id="quick-start" class="font-large">
-        <h2>Commercial Support</h2>
-        <p>
-            Kick start a new project or boost your existing team's productivity. <span class="underline">We'll show you
-            how to save LOTS of developer time.</span> We provide dedicated phone, email and chat support to get you
-            going. Purchase Enterprise Support for teams of 15 or more people, or Developer Support for smaller teams.
-        </p>
-        <table class="offers">
-            <tr>
-                <td>
+    <div id="testimonials" class="row section testimonials">
+        <div class="column">
+            <div class="quote">"Its bloody amazing. I've saved so much time since I started using it."</div>
+            <div class="author">Hossein &mdash; Melbourne</div>
+        </div>
+        <div class="column">
+            <div class="quote">"Its bloody amazing. I've saved so much time since I started using it."</div>
+            <div class="author">Hossein &mdash; Melbourne</div>
+        </div>
+    </div>
+
+    <div id="support" class="row">
+        <div class="column">
+            <h2>Commercial Support</h2>
+            <p>
+                Kick start a new project or boost your existing team's productivity. We'll show you how to save LOTS of
+                developer time. We provide dedicated phone, email and chat support to get you going. Purchase
+                <a href="">Enterprise Support</a> for teams of 15 or more people, or <a href="">Developer Support</a>
+                for smaller teams.
+            </p>
+            <p>
+                Some quick facts:
+            </p>
+            <ul>
+                <li>More than 1000 individual unit tests</li>
+                <li>100% code coverage with 95% branch coverage rate</li>
+                <li>Covers all Spring Data Commons repository specifications except predicates</li>
+                <li>More than 6000 lines of code, of which a substantial amount is unit tests</li>
+                <li>JavaDocs for every public class and method</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="pricing" class="pricing section">
+        <div class="row">
+            <div class="column">
+                <div class="offer">
                     <h3>Enterprise Support</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
+                        One year of priority phone, email and chat support for teams of 15 or more developers.
                     </p>
                     <div class="price">
-                        $900 USD/year
+                        $900
+                        <span class="unit">USD/year</span>
                     </div>
-                    <button class="btn">Buy</button>
-                </td>
-                <td>
+                    <a class="button purchase" href="#purchase">Buy</a>
+                </div>
+            </div>
+            <div class="column">
+                <div class="offer">
                     <h3>Developer Support</h3>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ornare lorem in nisi feugiat tincidunt.
+                        One year of priority phone, email and chat support for teams of 1 to 14 developers.
                     </p>
                     <div class="price">
-                        $500 USD/year
+                        $500
+                        <span class="unit">USD/year</span>
                     </div>
-                    <button class="btn">Buy</button>
-                </td>
-            </tr>
-        </table>
+                    <a class="button purchase" href="#purchase">Buy</a>
+                </div>
+            </div>
+        </div>
+        <div id="guarantee" class="row">
+            <div class="column">
+                <h4>Satisfaction Guarantee</h4>
+                <p>
+                    You can be confident that when you purchase products and services from me you won't have any problems.
+                    I use <a href="https://stripe.com">Stripe</a> to process your payment and
+                    <a href="https://freshbits.io">freshbits</a> to manage your subscription. If you're not happy with SDM
+                    or the support service that I provide then I'll gladly refund your money, no questions asked.
+                </p>
+            </div>
+        </div>
+    </div>
 
-        <h4>Buyer Protection</h4>
-        <p>
-            You can be confident that when you purchase products and services from us you won't have any problems.
-            We use <a href="https://stripe.com">Stripe</a> to process your payment and
-            <a href="https://freshbits.io">freshbits</a> to manage your subscription. And, if you're not happy with the
-            service we provide you, we'll gladly refund your money, no questions asked.
-        </p>
-
-    </section>
-
-    <section id="about" class="about font-large">
-        <h2>Team</h2>
-        <a class="profile" href="https://twitter.com/mmnaseri">
-            <img src="https://pbs.twimg.com/profile_images/1197011266/180px-Milad_400x400.jpg" alt="Me" />
-        </a>
-        <p>
-            Hey, I'm <a href="https://twitter.com/mmnaseri">Milad Naseri</a>. I'm a professional software
-            engineer and TDD enthusiast from Kirkland, Washington USA.
-        </p>
-        <p>
-            I wrote SDM because I was testing some pretty complicated services that relied on Spring
-            Data. It was a lot of hassle to keep the test environment up-to-date with the test
-            requirements as well as the real world situation. I wanted to be able to isolate my services and
-            test them regardless of the database features.
-        </p>
-        <p>
-            Something something something something something something something something.
-            Something something something something something something something something.
-            Something something something something something something something something.
-            Something something something something something something something something.
-        </p>
-    </section>
-</div>
-
-<div class="container">
-    <div class="footer">
-        Copyright &copy; Milad Naseri. All rights reserved.<br>
-        Sell products and services from your GitHub account using  <a href="https://freshbits.io">freshbits</a>
+    <div id="about" class="row section">
+        <div class="column about">
+            <h2>Team</h2>
+            <a class="profile" href="https://twitter.com/mmnaseri">
+                <img src="https://pbs.twimg.com/profile_images/1197011266/180px-Milad_400x400.jpg" alt="Me"/>
+            </a>
+            <p>
+                Hey, I'm <a href="https://twitter.com/mmnaseri">Milad Naseri</a>. I'm a professional software
+                engineer and TDD enthusiast from Kirkland, Washington USA.
+            </p>
+            <p>
+                A few years ago, I was testing some pretty complicated services that relied on Spring Data. It was a
+                huge hassle to keep the test environment up-to-date with the requirements and real world situation. I
+                wanted to be able to isolate my services and test them regardless of database features, so I wrote
+                Spring Data Mock to solve that need and improve my testing outcomes.
+            </p>
+            <p>
+                Since then, more than a thousand people have downloaded and used SDM in their projects. Its been
+                extremely rewarding to watch a community grow around this library.
+            </p>
+            <p>
+                my goal is to
+                help you reduce the amount of effort you need to build top quality tests, while continuing to develop
+                and maintain the highest quality library.
+                According to Cobertura, it has 100% code coverage, and according to Codacy, it has 0 code issues. It is
+                maintained by myself the best I can. The rest is up to you.
+            </p>
+        </div>
     </div>
 </div>
+
+<div class="container footer">
+    <div class="row">
+        <div class="column">
+            Copyright &copy; Milad Naseri. All rights reserved.<br>
+            Sell products and services from your GitHub account using <a href="https://freshbits.io">freshbits</a>
+        </div>
+    </div>
+</div>
+
+<div id="sidr">
+    <div class="header">Checkout</div>
+    <div class="body">
+        <form action="/charge" method="post" id="payment-form">
+            <div class="invoice">
+                <h5>Order Summary</h5>
+                <ul class="items">
+                    <li>Enterprise Support Service - One Year Priority Support</li>
+                </ul>
+            </div>
+            <div class="billing">
+                <h5>Billing Information</h5>
+                <div class="form-group">
+                    <label>GitHub Username</label>
+                    <input type="text" placeholder="GitHub username" />
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="text" placeholder="janedoe@example.com" />
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" placeholder="Example Corporation" />
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <input type="text" placeholder="123 Main Street" />
+                </div>
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" placeholder="GitHub username" />
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" placeholder="GitHub username" />
+                </div>
+                <div class="form-group">
+                    <label>Country</label>
+                    <input type="text" placeholder="GitHub username" />
+                </div>
+            </div>
+            <div class="payment">
+                <h5>Payment Information</h5>
+                <div class="form-row">
+                    <label for="card-element">Credit or debit card</label>
+                    <div id="card-element"></div>
+                    <div id="card-errors" role="alert"></div>
+                </div>
+                <button>Submit Payment</button>
+            </div>
+            <div id="payment-request-button"></div>
+        </form>
+    </div>
+    <div class="footer">
+        Close
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.button.purchase').sidr({displace:false,side:'right'});
+
+        // Create a Stripe client.
+        var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+
+        // Create an instance of Elements.
+        var elements = stripe.elements();
+
+        // Custom styling can be passed to options when creating an Element.
+        // (Note that this demo uses a wider set of styles than the guide below.)
+        var style = {
+            base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                    color: '#aab7c4'
+                }
+            },
+            invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+            }
+        };
+
+        // Create an instance of the card Element.
+        var card = elements.create('card', {style: style});
+
+        // Add an instance of the card Element into the `card-element` <div>.
+        card.mount('#card-element');
+
+        // Handle real-time validation errors from the card Element.
+        card.addEventListener('change', function(event) {
+            var displayError = document.getElementById('card-errors');
+            if (event.error) {
+                displayError.textContent = event.error.message;
+            } else {
+                displayError.textContent = '';
+            }
+        });
+
+        // Handle form submission.
+        var form = document.getElementById('payment-form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            stripe.createToken(card).then(function(result) {
+                if (result.error) {
+                    // Inform the user if there was an error.
+                    var errorElement = document.getElementById('card-errors');
+                    errorElement.textContent = result.error.message;
+                } else {
+                    // Send the token to your server.
+                    stripeTokenHandler(result.token);
+                }
+            });
+        });
+    });
+</script>
 
 </body>
 </html>

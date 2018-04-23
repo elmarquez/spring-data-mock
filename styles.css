@@ -1,0 +1,274 @@
+html, body {
+    background-color: rgb(52, 0, 164);
+    color: rgb(210, 210, 210);
+    font-family: "Work Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    margin: 0;
+}
+
+a {
+    color: dodgerblue;
+    text-decoration: underline;
+}
+a:hover {
+    color: #4da6ff;
+}
+body>.footer {
+    font-size: small;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.container {
+    max-width: 80rem;
+}
+
+.content {
+    margin-bottom: 120px;
+    margin-top: 120px;
+}
+
+.font-highlight {
+    color: dodgerblue;
+}
+
+.font-x-large {
+    font-size: x-large;
+}
+
+.mobile.nav {
+    bottom: 0;
+    display: none;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+}
+.navbar {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+    height: 64px;
+    justify-content: space-between;
+}
+
+.navbar a {
+    align-items: center;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 0 16px;
+}
+
+.navbar .navbar-section:first-child {
+    margin-left: -16px;
+}
+
+.navbar .navbar-section:last-child {
+    margin-right: -16px;
+}
+
+.navbar a.navbar-brand {
+    color: rgb(253, 159, 50);
+    color: rgb(230, 230, 230);
+    font-weight: 900;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navbar-section {
+    align-items: stretch;
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar-section.mobile {
+    align-items: center;
+    display: flex;
+    fill: white;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.5;
+}
+
+.octicon {
+    height: 24px;
+    opacity: 0;
+    width: 24px;
+}
+
+.offer {
+    background-color: rgba(0,0,0,0.1);
+    border: 2px solid rgba(0,0,0,0.1);
+    margin-bottom: 16px;
+    padding: 32px;
+}
+.offer:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+.offer>.price {
+    color: white;
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+.offer>.price .unit {
+    font-size: large;
+    font-weight: 500;
+}
+.offer .button.purchase {
+    background: dodgerblue;
+    border: 1px solid dodgerblue;
+    color: white;
+    font-size: small;
+    width: 100%;
+}
+.offer .button.purchase:hover {
+    background-color: rgb(253, 159, 50);
+    border: 1px solid rgb(253, 159, 50);
+}
+.panel {
+    background-color: whitesmoke;
+    bottom: 0;
+    color: #525f7f;
+    right: -450px;
+    position: fixed;
+    top: 0;
+    width: 450px;
+}
+
+.pricing {
+    margin-top: 2rem;
+}
+
+.section {
+    margin-bottom: 4rem;
+}
+
+.sidr {
+    align-items: stretch;
+    background-color: ghostwhite;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position:fixed;
+    top: 0;
+    overflow-x:hidden;
+    overflow-y:auto;
+    width: 450px;
+    z-index:999999;
+}
+.sidr>.body {
+    flex-grow: 2;
+}
+.sidr>.body form {
+    font-family:  -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    margin: 24px;
+}
+.sidr>.body form input {
+    background-color: white;
+    color: #32325d;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 15px;
+    padding: 18px 8px;
+}
+.sidr>.body form label {
+    color: #32325d;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: 500;
+}
+.sidr>.footer {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 80px;
+    height: 80px;
+}
+.sidr>.header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 80px;
+    height: 80px;
+}
+.sidr.right{
+    left: auto;
+    right:-450px;
+}
+.sidr.left{
+    left:-450px;
+    right:auto;
+}
+
+.testimonials {
+    margin-top: 4rem;
+}
+.testimonials>.column {
+    color: dodgerblue;
+}
+.testimonials>.column .author {
+    font-style: italic;
+    margin-left: 4px;
+}
+.testimonials>.column .quote {
+    font-size: x-large;
+    margin-bottom: 16px;
+}
+
+.uppercase {
+    text-decoration: uppercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: rgb(253, 159, 50);
+    font-weight: 600;
+}
+h4 {
+    font-size: medium;
+    margin-top: 16px;
+    text-transform: uppercase;
+}
+
+a.profile img {
+    border: 10px solid rgba(0,0,0,0.1);
+    /*border-radius: 50%;*/
+    float: right;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    width: 180px;
+}
+
+@media (max-width: 640px) {
+    .container.content {
+        margin: 60px 0;
+    }
+
+    .hidden-xs {
+        display: none;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .navbar-brand {
+        font-size: x-large;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .octicon {
+        opacity: 1;
+        transition: all 0.5s ease-in-out;
+    }
+
+    .visible-xs {
+        display: block;
+        transition: all 0.5s ease-in-out;
+    }
+}
