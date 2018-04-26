@@ -4,15 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Spring Data Mock</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/milligram@1.3.0/dist/milligram.min.css" integrity="sha256-Ro/wP8uUi8LR71kwIdilf78atpu8bTEwrK5ZotZo+Zc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.6.1/animate.min.css" integrity="sha256-7Thxp83QgsvHFVN9fBi0HAXI8iihC/fr2glvjhgpl/s=" crossorigin="anonymous">
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="./stripe.css">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sidr@2.2.1/dist/jquery.sidr.min.js" integrity="sha256-/VeucihXSoNSfLiRfsWg/5RKp4eTTuW4Wnl28lm3rjE=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animatedmodal@1.0.0/animatedModal.min.js" integrity="sha256-JhcqyE1m2fGE1UjTVQ4HAfgS6jTQ9znhegVO9oDxinY=" crossorigin="anonymous"></script>
     <script src="https://js.stripe.com/v3/"></script>
 </head>
 <body>
+
+<a href="https://github.com/mmnaseri/spring-data-mock" class="github-corner" aria-label="View source on Github">
+    <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg>
+</a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
 <header class="container navbar">
     <div class="navbar-section">
@@ -27,7 +35,7 @@
         <a href="./docs#download">Download</a>
         <a href="./docs">Docs</a>
         <a href="#support">Support</a>
-        <a href="#about">About</a>
+        <a href="#team">Team</a>
     </div>
 </header>
 
@@ -43,13 +51,13 @@
             <a href="#support">Support</a>
         </li>
         <li>
-            <a href="#about">About</a>
+            <a href="#team">Team</a>
         </li>
     </ul>
 </div>
 
 <div class="container content">
-    <div id="introduction" class="row section">
+    <div id="introduction" class="row margin-bottom">
         <div class="column">
             <h1>A lightning fast framework for mocking Spring Data repositories</h1>
             <p>
@@ -62,13 +70,15 @@
                 Spring Data Mock will save you time and money, while making your tests run faster.
             </p>
             <p>
-            Reduce the amount of code you need to write, while using a reliable infrastructure that replicates
-            what Spring would do with an actual database, only in-memory.
+                Reduce the amount of code you need to write, while using a reliable infrastructure that replicates what
+                Spring would do with an actual database, only in-memory. Spring Data Mock is open source and available
+                for download from GitHub and Maven Central. Take a look at our <a href="/docs">docs</a> for instructions
+                on getting started.
             </p>
         </div>
     </div>
 
-    <div id="testimonials" class="row section testimonials hidden">
+    <div id="testimonials" class="row margin-bottom testimonials hidden">
         <div class="column">
             <div class="quote">"Its bloody amazing. I've saved so much time since I started using it."</div>
             <div class="author">Hossein &mdash; Melbourne</div>
@@ -88,9 +98,63 @@
                 <a href="">Enterprise Support</a> for teams of 15 or more people, or <a href="">Developer Support</a>
                 for smaller teams.
             </p>
-            <p>
-                Some quick facts:
-            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <div class="offer">
+                <h3>Enterprise Support</h3>
+                <p>
+                    One year of priority phone, email and chat support for teams of 15 or more developers.
+                </p>
+                <div class="price">
+                    $900
+                    <span class="unit">USD/year</span>
+                </div>
+                <form action="your-server-side-code" method="POST" class="stripe-checkout">
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                            data-billing-address="true"
+                            data-amount="900.00"
+                            data-name="Enterprise Support"
+                            data-description="One year of priority Enterprise Support service"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto"
+                            data-zip-code="true">
+                    </script>
+                </form>
+            </div>
+        </div>
+        <div class="column">
+            <div class="offer">
+                <h3>Developer Support</h3>
+                <p>
+                    One year of priority phone, email and chat support for teams of 1 to 14 developers.
+                </p>
+                <div class="price">
+                    $500
+                    <span class="unit">USD/year</span>
+                </div>
+                <form action="your-server-side-code" method="POST" class="stripe-checkout">
+                    <script
+                            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                            data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+                            data-billing-address="true"
+                            data-amount="500.00"
+                            data-name="Developer Support"
+                            data-description="One year of priority Developer Support service"
+                            data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                            data-locale="auto"
+                            data-zip-code="true">
+                    </script>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <h4>Quick Facts</h4>
             <ul>
                 <li>More than 1000 individual unit tests</li>
                 <li>100% code coverage with 95% branch coverage rate</li>
@@ -100,51 +164,21 @@
             </ul>
         </div>
     </div>
-
-    <div id="pricing" class="pricing section">
-        <div class="row">
-            <div class="column">
-                <div class="offer">
-                    <h3>Enterprise Support</h3>
-                    <p>
-                        One year of priority phone, email and chat support for teams of 15 or more developers.
-                    </p>
-                    <div class="price">
-                        $900
-                        <span class="unit">USD/year</span>
-                    </div>
-                    <a class="button purchase" href="#purchase">Buy</a>
-                </div>
-            </div>
-            <div class="column">
-                <div class="offer">
-                    <h3>Developer Support</h3>
-                    <p>
-                        One year of priority phone, email and chat support for teams of 1 to 14 developers.
-                    </p>
-                    <div class="price">
-                        $500
-                        <span class="unit">USD/year</span>
-                    </div>
-                    <a class="button purchase" href="#purchase">Buy</a>
-                </div>
-            </div>
-        </div>
-        <div id="guarantee" class="row">
-            <div class="column">
-                <h4>Satisfaction Guarantee</h4>
-                <p>
-                    You can be confident that when you purchase products and services from me you won't have any problems.
-                    I use <a href="https://stripe.com">Stripe</a> to process your payment and
-                    <a href="https://freshbits.io">freshbits</a> to manage your subscription. If you're not happy with SDM
-                    or the support service that I provide then I'll gladly refund your money, no questions asked.
-                </p>
-            </div>
+    <div class="row margin-bottom">
+        <div class="column" id="guarantee">
+            <h4>Satisfaction Guarantee</h4>
+            <p>
+                You can be confident that when you purchase products and services from us you won't have any problems.
+                We use <a href="https://stripe.com">Stripe</a> to process your payment and
+                <a href="https://freshbits.io">freshbits</a> to manage your subscription. If you're not happy with
+                Spring Data Mock or the service we provide then we'll gladly refund your money within 30 days of your
+                purchase, no questions asked.
+            </p>
         </div>
     </div>
 
-    <div id="about" class="row section">
-        <div class="column about">
+    <div id="team" class="row margin-bottom">
+        <div class="column">
             <h2>Team</h2>
             <a class="profile" href="https://twitter.com/mmnaseri">
                 <img src="https://pbs.twimg.com/profile_images/1197011266/180px-Milad_400x400.jpg" alt="Me"/>
@@ -155,20 +189,19 @@
             </p>
             <p>
                 A few years ago, I was testing some pretty complicated services that relied on Spring Data. It was a
-                huge hassle to keep the test environment up-to-date with the requirements and real world situation. I
-                wanted to be able to isolate my services and test them regardless of database features, so I wrote
-                Spring Data Mock to solve that need and improve my testing outcomes.
+                huge hassle to keep the test environment up-to-date with the requirements and real world situation.
+                After a long struggle, I wrote Spring Data Mock so that I could isolate my services and test them
+                regardless of database features.
             </p>
             <p>
-                Since then, more than a thousand people have downloaded and used SDM in their projects. Its been
-                extremely rewarding to watch a community grow around this library.
+                Since then, more than a thousand people from around the world have downloaded and used Spring Data Mock
+                in their projects. Its been extremely rewarding to watch a community grow around this library, and I
+                want to see it grow further. That's why I'm now offering commercial support for this library.
             </p>
             <p>
-                my goal is to
-                help you reduce the amount of effort you need to build top quality tests, while continuing to develop
-                and maintain the highest quality library.
-                According to Cobertura, it has 100% code coverage, and according to Codacy, it has 0 code issues. It is
-                maintained by myself the best I can. The rest is up to you.
+                My goal is to help you reduce the amount of effort you need to build top quality tests, while continuing
+                to develop and maintain the best Spring Data testing library around. I take pride in creating high
+                quality work and I aim to exceed your expectations.
             </p>
         </div>
     </div>
@@ -183,67 +216,85 @@
     </div>
 </div>
 
-<div id="sidr">
-    <div class="header">Checkout</div>
-    <div class="body">
-        <form action="/charge" method="post" id="payment-form">
+<div id="checkout" class="modal dialog">
+    <div class="close-checkout">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="36px" height="36px" viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+            <g>
+                <circle fill="none" stroke="#999" stroke-width="2" stroke-miterlimit="10" cx="26" cy="26" r="25"/>
+                <g>
+                    <line fill="none" stroke="#999" stroke-width="2" stroke-miterlimit="10" x1="33.571" y1="34.278" x2="18.722" y2="19.429"/>
+                    <line fill="none" stroke="#999" stroke-width="2" stroke-miterlimit="10" x1="33.571" y1="18.722" x2="18.722" y2="33.571"/>
+                </g>
+            </g>
+        </svg>
+    </div>
+    <div class="modal-content">
+        <div class="col">
             <div class="invoice">
-                <h5>Order Summary</h5>
+                <h3>Purchase Enterprise Support</h3>
                 <ul class="items">
                     <li>Enterprise Support Service - One Year Priority Support</li>
                 </ul>
             </div>
-            <div class="billing">
-                <h5>Billing Information</h5>
-                <div class="form-group">
-                    <label>GitHub Username</label>
-                    <input type="text" placeholder="GitHub username" />
+        </div>
+        <div class="col">
+            <form action="/charge" method="post" id="payment-form">
+                <div class="account">
+                    <h5>Account</h5>
+                    <div class="form-group">
+                        <label>GitHub Username</label>
+                        <input type="text" placeholder="GitHub username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" placeholder="janedoe@example.com" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="text" placeholder="janedoe@example.com" />
+                <div class="billing">
+                    <h5>Billing Information</h5>
+                    <div class="form-group">
+                        <label>Company</label>
+                        <input type="text" placeholder="Example Corporation" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" placeholder="123 Main Street" />
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" placeholder="GitHub username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" placeholder="GitHub username" />
+                    </div>
+                    <div class="form-group">
+                        <label>Country</label>
+                        <input type="text" placeholder="GitHub username" />
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Company</label>
-                    <input type="text" placeholder="Example Corporation" />
+                <div class="payment">
+                    <h5>Payment Information</h5>
+                    <div class="form-row">
+                        <label for="card-element">Credit or debit card</label>
+                        <div id="card-element"></div>
+                        <div id="card-errors" role="alert"></div>
+                    </div>
+                    <button>Submit Payment</button>
                 </div>
-                <div class="form-group">
-                    <label>Address</label>
-                    <input type="text" placeholder="123 Main Street" />
-                </div>
-                <div class="form-group">
-                    <label>City</label>
-                    <input type="text" placeholder="GitHub username" />
-                </div>
-                <div class="form-group">
-                    <label>Country</label>
-                    <input type="text" placeholder="GitHub username" />
-                </div>
-                <div class="form-group">
-                    <label>Country</label>
-                    <input type="text" placeholder="GitHub username" />
-                </div>
-            </div>
-            <div class="payment">
-                <h5>Payment Information</h5>
-                <div class="form-row">
-                    <label for="card-element">Credit or debit card</label>
-                    <div id="card-element"></div>
-                    <div id="card-errors" role="alert"></div>
-                </div>
-                <button>Submit Payment</button>
-            </div>
-            <div id="payment-request-button"></div>
-        </form>
-    </div>
-    <div class="footer">
-        Close
+                <div id="payment-request-button"></div>
+            </form>
+        </div>
     </div>
 </div>
 
+
 <script>
     $(document).ready(function () {
-        $('.button.purchase').sidr({displace:false,side:'right'});
+        // modal dialog
+        const config = {color:'ghostwhite', modalTarget:'checkout'};
+        $("#buy-enterprise").animatedModal(config);
+        $("#buy-developer").animatedModal(config);
 
         // Create a Stripe client.
         var stripe = Stripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
